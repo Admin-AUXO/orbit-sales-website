@@ -1,0 +1,25 @@
+{
+  "persona": "athlete",
+  "name": "Arjun, International Chess Player",
+  "headline": "Sustained focus through 6-hour tournament days",
+  "challenge": "During multi-round tournaments, mental fatigue was costing critical endgame decisions. Arjun could not reliably tell when cognitive load was peaking until mistakes appeared on the board.",
+  "intervention": "Used Orbit during training blocks and pre-match preparation 4x per week. Tagged high-stakes sessions to build a personal focus baseline across morning and afternoon play.",
+  "results": [
+    {
+      "metric": "Sustained focus sessions",
+      "before": "42 min avg",
+      "after": "58 min avg",
+      "change": "+38%"
+    },
+    {
+      "metric": "Post-session recovery score",
+      "before": "62/100",
+      "after": "81/100",
+      "change": "+31%"
+    }
+  ],
+  "quote": "Orbit showed me exactly when my mind was still sharp — and when I needed to reset before the next round.",
+  "photo": "/brand/images/case-study-athlete.jpg",
+  "trialRef": "athlete-focus-trial-2025",
+  "featured": true
+}

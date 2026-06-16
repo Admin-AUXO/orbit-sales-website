@@ -1,0 +1,18 @@
+{
+  "persona": "executive",
+  "name": "James, Finance Director",
+  "headline": "Protected cognitive endurance during quarter-end",
+  "challenge": "Quarter-end reporting demanded sustained analytical focus under time pressure. James frequently hit cognitive overload in late afternoons, when accuracy mattered most.",
+  "intervention": "Used Orbit during analytical work sessions for 6 weeks. Identified personal low-focus windows and scheduled complex modelling in morning blocks.",
+  "results": [
+    {
+      "metric": "Afternoon focus consistency",
+      "before": "54%",
+      "after": "78%",
+      "change": "+44%"
+    }
+  ],
+  "quote": "After 6 weeks, my afternoon focus consistency went from 54% to 78%. I stopped scheduling complex modelling for late afternoons — that was when Orbit showed my brain consistently dropped off.",
+  "photo": "/brand/images/case-study-finance.jpg",
+  "featured": false
+}

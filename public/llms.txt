@@ -1,0 +1,24 @@
+# Neurostellar
+
+> Premium mental fitness technology for athletes and executives.
+
+Neurostellar builds Neurostellar Orbit — a smart headgear wearable that tracks focus, cognitive load, and recovery using EEG brain sensing and PPG body monitoring. The product is designed for intentional use during deep work, strategy, creation, and recovery sessions.
+
+## Key pages
+
+- Home: /
+- Product: /orbit
+- For Athletes: /athletes
+- For Executives: /executives
+- Case Studies: /case-studies
+- Research & Trials: /research
+- The Science: /science
+- FAQ: /faq
+- Buy: /buy
+- Book a Demo: /demo
+
+## Contact
+
+- Email: support@neuro-stellar.com
+- Phone: +91 78452 16763
+- Website: https://www.neuro-stellar.com

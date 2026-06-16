@@ -1,0 +1,25 @@
+{
+  "persona": "executive",
+  "name": "Sarah, Tech Founder & CEO",
+  "headline": "Clearer decisions through back-to-back leadership days",
+  "challenge": "Running a high-growth startup meant constant context-switching between investor calls, product reviews, and team leadership. Sarah struggled to protect deep work time and recognise early burnout signals.",
+  "intervention": "Wore Orbit during morning strategy blocks and back-to-back meeting days. Used cognitive load patterns to restructure her calendar around peak focus windows.",
+  "results": [
+    {
+      "metric": "Deep work block consistency",
+      "before": "3 days/week",
+      "after": "5 days/week",
+      "change": "+67%"
+    },
+    {
+      "metric": "Self-reported decision clarity",
+      "before": "6.2/10",
+      "after": "8.4/10",
+      "change": "+35%"
+    }
+  ],
+  "quote": "My deep work blocks went from 3 days a week to 5. The data showed my brain was sharpest between 9–11 AM — so I ring-fenced that time and stopped taking calls before noon.",
+  "photo": "/brand/images/case-study-executive.jpg",
+  "trialRef": "executive-cognitive-load-2025",
+  "featured": true
+}

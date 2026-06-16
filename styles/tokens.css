@@ -1,0 +1,101 @@
+:root {
+  /* Neurostellar — black & white base with premium silver luminance */
+  --ns-bg: #000000;
+  --ns-bg-elevated: #08080c;
+  --ns-bg-card: #0f0f14;
+  --ns-border: #1f1f28;
+  --ns-text: #ffffff;
+  --ns-text-muted: #9ca3af;
+  --ns-accent: #ffffff;
+  --ns-accent-hover: #e8e8ec;
+  --ns-accent-muted: rgba(255, 255, 255, 0.07);
+  --ns-on-accent: #000000;
+
+  /* Premium tech luminance — subtle, not neon */
+  --ns-glow: rgba(200, 210, 235, 0.14);
+  --ns-glow-strong: rgba(220, 225, 245, 0.22);
+  --ns-silver: #b8bcc8;
+  --ns-aurora-1: rgba(140, 155, 190, 0.18);
+  --ns-aurora-2: rgba(255, 255, 255, 0.06);
+  --ns-aurora-3: rgba(90, 100, 130, 0.12);
+
+  --ns-max-width: 1200px;
+
+  --ns-gradient-hero: radial-gradient(
+      ellipse 80% 60% at 70% 20%,
+      var(--ns-aurora-1),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 50% 40% at 20% 80%,
+      var(--ns-aurora-3),
+      transparent 50%
+    ),
+    linear-gradient(180deg, #000000 0%, #06060a 50%, #000000 100%);
+
+  --ns-gradient-card: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    transparent 40%,
+    rgba(140, 155, 190, 0.05) 100%
+  );
+
+  --ns-gradient-border: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.18),
+    rgba(255, 255, 255, 0.04) 50%,
+    rgba(180, 190, 220, 0.12)
+  );
+}
+
+@theme inline {
+  --color-ns-bg: var(--ns-bg);
+  --color-ns-bg-elevated: var(--ns-bg-elevated);
+  --color-ns-bg-card: var(--ns-bg-card);
+  --color-ns-border: var(--ns-border);
+  --color-ns-text: var(--ns-text);
+  --color-ns-text-muted: var(--ns-text-muted);
+  --color-ns-accent: var(--ns-accent);
+  --color-ns-accent-hover: var(--ns-accent-hover);
+  --color-ns-accent-muted: var(--ns-accent-muted);
+  --color-ns-on-accent: var(--ns-on-accent);
+  --color-ns-silver: var(--ns-silver);
+  --color-ns-glow: var(--ns-glow);
+  --font-display: var(--font-manrope);
+  --font-body: var(--font-manrope);
+}
+
+.premium-surface {
+  background: var(--ns-gradient-card);
+}
+
+.premium-border {
+  position: relative;
+}
+
+.premium-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: var(--ns-gradient-border);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.aurora-bg {
+  background: var(--ns-gradient-hero);
+}
+
+.mesh-overlay {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 72px 72px;
+}

@@ -1,0 +1,18 @@
+{
+  "persona": "athlete",
+  "name": "Maya, Elite Marathon Runner",
+  "headline": "Faster mental recovery between training blocks",
+  "challenge": "High-volume training created invisible cognitive fatigue that affected pacing decisions and post-run recovery routines. Maya needed objective signals beyond perceived exertion.",
+  "intervention": "Integrated Orbit into post-training recovery sessions and pre-long-run mental preparation. Tracked relaxation and HRV-linked recovery scores over an 8-week block.",
+  "results": [
+    {
+      "metric": "Recovery session effectiveness",
+      "before": "71%",
+      "after": "89%",
+      "change": "+25%"
+    }
+  ],
+  "quote": "Recovery isn't just physical. Orbit helped me treat mental reset as seriously as my mileage.",
+  "photo": "/brand/images/case-study-runner.jpg",
+  "featured": false
+}
