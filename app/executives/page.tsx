@@ -95,11 +95,16 @@ export default function ExecutivesPage() {
 
       <section className="py-16 text-center">
         <div className="mx-auto max-w-[var(--ns-max-width)] px-6 lg:px-8">
-          <Button href="/buy">Buy Orbit</Button>
-          <span className="mx-4 text-ns-text-muted">or</span>
-          <Button href="/demo" variant="secondary">
-            Book a Demo
-          </Button>
+          <Button href="/report">Explore your report</Button>
+          <div className="mt-6">
+            <Button href="/buy" variant="secondary">
+              Buy Orbit
+            </Button>
+            <span className="mx-4 text-ns-text-muted">or</span>
+            <Button href="/demo" variant="secondary">
+              Book a Demo
+            </Button>
+          </div>
         </div>
       </section>
       <CTABand />

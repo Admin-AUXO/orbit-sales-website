@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { type ReactNode } from "react";
+import { useIsClient } from "@/lib/use-is-client";
 
 export function FadeIn({
   children,
@@ -12,6 +13,12 @@ export function FadeIn({
   className?: string;
   delay?: number;
 }) {
+  const isClient = useIsClient();
+
+  if (!isClient) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
       className={className}

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { PlaceholderVisual } from "@/components/ui/PlaceholderVisual";
 
@@ -64,6 +65,14 @@ export function ProductDemo() {
             Real session data from a 15-minute executive work session.
             This is what high cognitive speed with lower agility looks like —
             and exactly what your coach uses to build your improvement plan.
+          </p>
+          <p className="mt-4">
+            <Link
+              href="/report"
+              className="text-sm font-semibold text-ns-accent underline-offset-4 hover:underline"
+            >
+              Take the interactive tour →
+            </Link>
           </p>
         </FadeIn>
       </div>

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { PlaceholderVisual } from "@/components/ui/PlaceholderVisual";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -84,7 +85,20 @@ export function HowItWorks() {
                 <div className="mt-6 flex flex-col flex-1">
                   <span className="font-display text-4xl text-ns-accent/30">{item.step}</span>
                   <h3 className="mt-3 font-display text-xl text-ns-text">{item.title}</h3>
-                  <p className="mt-3 leading-relaxed text-ns-text-muted">{item.description}</p>
+                  <p className="mt-3 leading-relaxed text-ns-text-muted">
+                    {item.description}
+                    {item.step === "02" && (
+                      <>
+                        {" "}
+                        <Link
+                          href="/report"
+                          className="font-semibold text-ns-accent underline-offset-4 hover:underline"
+                        >
+                          Explore the interactive report tour →
+                        </Link>
+                      </>
+                    )}
+                  </p>
                 </div>
               </div>
             </FadeIn>

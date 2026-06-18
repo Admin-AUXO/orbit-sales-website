@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/science",
     "/athletes",
     "/executives",
+    "/report",
     "/case-studies",
     "/research",
     "/contact",
