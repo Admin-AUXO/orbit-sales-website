@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/executives",
     "/case-studies",
     "/research",
+    "/contact",
   ];
 
   const caseStudyPages = getCaseStudies().map((s) => ({
