@@ -151,15 +151,17 @@ export function Header() {
 
         {/* CTAs + hamburger */}
         <div className="flex items-center gap-3">
-          <TrackedButton
-            href="/demo"
-            variant="secondary"
-            action="demo"
-            location="header"
-            className="hidden px-4 py-2.5 text-xs sm:inline-flex lg:px-6 lg:text-sm"
-          >
-            Book a Demo
-          </TrackedButton>
+          <div className="hidden lg:flex">
+            <TrackedButton
+              href="/demo"
+              variant="secondary"
+              action="demo"
+              location="header"
+              className="px-4 py-2.5 text-xs lg:px-6 lg:text-sm"
+            >
+              Book a Demo
+            </TrackedButton>
+          </div>
           <TrackedButton
             href="/buy"
             variant="primary"
@@ -251,16 +253,7 @@ export function Header() {
             )
           )}
 
-          <div className="mt-5 flex flex-col gap-3">
-            <TrackedButton
-              href="/demo"
-              variant="secondary"
-              action="demo"
-              location="mobile-nav"
-              className="w-full justify-center"
-            >
-              Book a Demo
-            </TrackedButton>
+          <div className="mt-5 lg:hidden">
             <TrackedButton
               href="/buy"
               variant="primary"
