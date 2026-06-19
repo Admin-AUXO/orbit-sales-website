@@ -1,41 +1,29 @@
 import Image from "next/image";
 import { PageShell } from "@/components/layout/PageShell";
 import { PageHeader } from "@/components/layout/PageHeader";
+import { CTABand } from "@/components/sections/CTABand";
 import { Button } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
 import { FadeIn } from "@/components/ui/FadeIn";
+import {
+  primaryCtaHref,
+  primaryCtaLabel,
+  secondaryCtaHref,
+  secondaryCtaLabel,
+} from "@/lib/cta-content";
+import { OrbitDesignGallery } from "@/components/orbit/OrbitDesignGallery";
+import { OrbitDesignPhilosophy } from "@/components/orbit/OrbitDesignPhilosophy";
+import { OrbitTechSpecs } from "@/components/orbit/OrbitTechSpecs";
+import { OrbitUseCases } from "@/components/orbit/OrbitUseCases";
+import { OrbitValueProps } from "@/components/orbit/OrbitValueProps";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { brandAssets } from "@/lib/brand";
 import { breadcrumbJsonLd, pageMetadata, productJsonLd } from "@/lib/seo";
 
 export const metadata = pageMetadata(
   "Orbit — Smart Headgear for Mental Fitness",
-  "Neurostellar Orbit combines brain and body sensing in premium smart headgear. Track focus, cognitive load, and recovery — then work with a dedicated performance coach backed by our neuroscience team.",
+  "Neurostellar Orbit combines brain and body sensing in premium smart headgear. Explore the engineering, design, and technical specs — then see how Speed, Agility, and Endurance become your edge.",
   "/orbit",
 );
-
-const benefits = [
-  {
-    title: "See when you're locked in",
-    body: "Detect deep focus and attention lapses so you can make sharper decisions and execute with precision.",
-  },
-  {
-    title: "Know before you burn out",
-    body: "Measure mental effort in real time and optimize your workload — push limits without overextending.",
-  },
-  {
-    title: "Recover on purpose",
-    body: "Track relaxation and recovery signals so you reset faster and show up ready for what comes next.",
-  },
-];
-
-const inBox = [
-  "Neurostellar Orbit smart headgear",
-  "USB-C charging cable",
-  "Carrying case",
-  "Quick start guide",
-  "iOS & Android app access",
-];
 
 export default function OrbitPage() {
   return (
@@ -52,14 +40,14 @@ export default function OrbitPage() {
       <PageHeader
         eyebrow="The product"
         title="Neurostellar Orbit™"
-        description="A breakthrough in mental fitness. Smart headgear that turns brain and body data into your competitive edge."
+        description="Premium smart headgear engineered for intentional mental fitness. Brain-grade sensing. Executive-grade design. Your edge, measured."
       />
 
-      <section className="py-16 md:py-24">
+      <section className="pb-8 pt-4 md:pb-12">
         <div className="mx-auto max-w-[var(--ns-max-width)] px-6 lg:px-8">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <FadeIn>
-              <div className="relative aspect-square max-w-md mx-auto">
+              <div className="relative mx-auto aspect-square max-w-md">
                 <div className="absolute inset-0 rounded-full bg-ns-accent-muted blur-3xl" />
                 <Image
                   src={brandAssets.device.front}
@@ -72,18 +60,16 @@ export default function OrbitPage() {
               </div>
             </FadeIn>
             <FadeIn delay={0.1}>
-              <h2 className="text-3xl font-bold text-ns-text">
-                Built for intentional performance
-              </h2>
-              <p className="mt-4 leading-relaxed text-ns-text-muted">
-                Orbit is optimized for still, high-focus moments — strategy,
-                creation, recovery. Tag your high-stakes sessions, track progress,
-                and uncover what works best for you.
+              <p className="text-lg leading-relaxed text-ns-text-muted">
+                Orbit is a smart headband that turns 10–15 minute sessions into
+                instant cognitive reports — Speed, Agility, Endurance, and 12
+                behavioural metrics. Built for people who perform when the margin
+                is mental.
               </p>
-              <div className="mt-8 flex gap-4">
-                <Button href="/buy">Buy Orbit</Button>
-                <Button href="/demo" variant="secondary">
-                  Book a Demo
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Button href={primaryCtaHref}>{primaryCtaLabel}</Button>
+                <Button href={secondaryCtaHref} variant="secondary">
+                  {secondaryCtaLabel}
                 </Button>
               </div>
             </FadeIn>
@@ -91,78 +77,12 @@ export default function OrbitPage() {
         </div>
       </section>
 
-      <section className="bg-ns-bg-elevated py-16 md:py-24">
-        <div className="mx-auto max-w-[var(--ns-max-width)] px-6 lg:px-8">
-          <h2 className="mb-12 text-center text-3xl font-bold text-ns-text md:text-4xl">
-            What Orbit delivers
-          </h2>
-          <div className="grid gap-6 md:grid-cols-3">
-            {benefits.map((b, i) => (
-              <FadeIn key={b.title} delay={i * 0.1}>
-                <Card className="h-full">
-                  <h3 className="text-xl font-semibold text-ns-text">{b.title}</h3>
-                  <p className="mt-3 text-ns-text-muted leading-relaxed">{b.body}</p>
-                </Card>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="border-t border-ns-border py-16 md:py-24">
-        <div className="mx-auto max-w-[var(--ns-max-width)] px-6 lg:px-8">
-          <h2 className="mb-10 text-center text-2xl font-bold text-ns-text">
-            Designed for precision
-          </h2>
-          <div className="grid gap-6 sm:grid-cols-3">
-            {[brandAssets.device.angle, brandAssets.device.side, brandAssets.device.zen].map(
-              (src, i) => (
-                <FadeIn key={src} delay={i * 0.1}>
-                  <div className="relative aspect-square overflow-hidden rounded-2xl border border-ns-border bg-ns-bg-card">
-                    <Image
-                      src={src}
-                      alt="Neurostellar Orbit product detail"
-                      fill
-                      className="object-contain p-4"
-                      sizes="(max-width: 640px) 100vw, 33vw"
-                    />
-                  </div>
-                </FadeIn>
-              ),
-            )}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 md:py-24">
-        <div className="mx-auto max-w-[var(--ns-max-width)] px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-2">
-            <div>
-              <h2 className="text-3xl font-bold text-ns-text">What&apos;s in the box</h2>
-              <ul className="mt-6 space-y-3">
-                {inBox.map((item) => (
-                  <li key={item} className="flex gap-3 text-ns-text-muted">
-                    <span className="text-ns-text">✓</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h2 className="text-3xl font-bold text-ns-text">Technical details</h2>
-              <p className="mt-4 text-ns-text-muted leading-relaxed">
-                Full sensor specifications, connectivity details, and scientific
-                validation are available on our{" "}
-                <a href="/science" className="text-ns-text underline hover:no-underline">
-                  Science page
-                </a>
-                . Orbit is engineered for precision — we keep the specs there
-                for those who want depth.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <OrbitDesignPhilosophy />
+      <OrbitValueProps />
+      <OrbitDesignGallery />
+      <OrbitTechSpecs />
+      <OrbitUseCases />
+      <CTABand />
     </PageShell>
   );
 }

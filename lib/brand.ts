@@ -47,7 +47,6 @@ export const deviceSlideshow = [
   { src: brandAssets.device.sideView, label: "Side view" },
   { src: brandAssets.device.topView, label: "Top" },
   { src: brandAssets.device.down, label: "Underside" },
-  { src: brandAssets.device.zen, label: "Zen" },
   { src: brandAssets.device.exploded, label: "Exploded" },
   { src: brandAssets.device.hero, label: "On model" },
 ] as const;
