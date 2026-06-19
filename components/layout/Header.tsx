@@ -4,12 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { TrackedButton } from "@/components/ui/TrackedButton";
-import {
-  primaryCtaHref,
-  primaryCtaLabel,
-  secondaryCtaHref,
-  secondaryCtaLabel,
-} from "@/lib/cta-content";
+import { primaryCtaHref, primaryCtaLabel } from "@/lib/cta-content";
 import { brandAssets } from "@/lib/brand";
 
 type NavChild = { label: string; href: string };
@@ -146,17 +141,6 @@ export function Header() {
 
         {/* CTAs + hamburger */}
         <div className="flex items-center gap-3">
-          <div className="hidden lg:flex">
-            <TrackedButton
-              href={secondaryCtaHref}
-              variant="secondary"
-              action="report"
-              location="header"
-              className="px-4 py-2.5 text-xs lg:px-6 lg:text-sm"
-            >
-              {secondaryCtaLabel}
-            </TrackedButton>
-          </div>
           <TrackedButton
             href={primaryCtaHref}
             variant="primary"
@@ -248,7 +232,7 @@ export function Header() {
             )
           )}
 
-          <div className="mt-5 flex flex-col gap-3 lg:hidden">
+          <div className="mt-5 lg:hidden">
             <TrackedButton
               href={primaryCtaHref}
               variant="primary"
@@ -257,15 +241,6 @@ export function Header() {
               className="w-full justify-center"
             >
               {primaryCtaLabel}
-            </TrackedButton>
-            <TrackedButton
-              href={secondaryCtaHref}
-              variant="secondary"
-              action="report"
-              location="mobile-nav"
-              className="w-full justify-center"
-            >
-              {secondaryCtaLabel}
             </TrackedButton>
           </div>
         </nav>
