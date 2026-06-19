@@ -5,6 +5,8 @@ import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { deviceSlideshow } from "@/lib/brand";
 
+const SLIDE_DURATION_MS = 4500;
+
 type DeviceSlideshowProps = {
   variant?: "default" | "hero";
   className?: string;
@@ -32,7 +34,7 @@ export function DeviceSlideshow({
   }, [index, goTo]);
 
   useEffect(() => {
-    const timer = setInterval(next, 4500);
+    const timer = setInterval(next, SLIDE_DURATION_MS);
     return () => clearInterval(timer);
   }, [next]);
 
@@ -97,31 +99,63 @@ export function DeviceSlideshow({
         </div>
       </div>
 
-      <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-none">
-        {deviceSlideshow.map((item, i) => (
-          <button
-            key={item.src}
-            type="button"
-            onClick={() => goTo(i)}
-            className={`relative shrink-0 overflow-hidden rounded-lg border transition ${
-              isHero ? "h-16 w-16 md:h-[4.5rem] md:w-[4.5rem]" : "h-14 w-14"
-            } ${
-              i === index
-                ? "border-ns-text/50 ring-1 ring-ns-glow"
-                : "border-ns-border opacity-60 hover:opacity-100"
-            }`}
-            aria-label={`View ${item.label}`}
-            aria-current={i === index}
-          >
-            <Image
-              src={item.src}
-              alt=""
-              fill
-              className="object-cover"
-              sizes="56px"
-            />
-          </button>
-        ))}
+      <div className="flex justify-center">
+        <div className="flex max-w-full flex-wrap justify-center gap-2 pb-1 sm:flex-nowrap sm:overflow-x-auto sm:scrollbar-none">
+          {deviceSlideshow.map((item, i) => {
+            const isActive = i === index;
+            const thumbSize = isHero
+              ? "h-16 w-16 md:h-[4.5rem] md:w-[4.5rem]"
+              : "h-14 w-14";
+
+            return (
+              <button
+                key={item.src}
+                type="button"
+                onClick={() => goTo(i)}
+                className={`group relative shrink-0 overflow-hidden rounded-lg border transition ${thumbSize} ${
+                  isActive
+                    ? "border-ns-text/50 ring-1 ring-ns-glow"
+                    : "border-ns-border opacity-60 hover:border-ns-text/25 hover:opacity-100"
+                }`}
+                aria-label={`View ${item.label}`}
+                aria-current={isActive}
+              >
+                <Image
+                  src={item.src}
+                  alt=""
+                  fill
+                  className="object-cover"
+                  sizes="56px"
+                />
+
+                {isActive ? (
+                  <>
+                    <span
+                      className="pointer-events-none absolute inset-x-0 bottom-0 h-[2px] bg-ns-border/50"
+                      aria-hidden
+                    />
+                    <motion.span
+                      key={index}
+                      className="pointer-events-none absolute bottom-0 left-0 h-[2px] bg-ns-accent"
+                      initial={{ width: "0%" }}
+                      animate={{ width: "100%" }}
+                      transition={{
+                        duration: SLIDE_DURATION_MS / 1000,
+                        ease: "linear",
+                      }}
+                      aria-hidden
+                    />
+                  </>
+                ) : (
+                  <span
+                    className="pointer-events-none absolute inset-x-0 bottom-0 h-[2px] scale-x-0 bg-ns-text/30 transition-transform duration-300 group-hover:scale-x-100"
+                    aria-hidden
+                  />
+                )}
+              </button>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

@@ -16,6 +16,8 @@ const useCases = [
       "Tag high-stakes sessions — board prep, strategy blocks, decision sprints. Know when your cognitive endurance is holding and when to protect recovery before the next meeting.",
     image: brandAssets.device.desk,
     imageAlt: "Neurostellar Orbit on a premium executive desk setup",
+    width: 3840,
+    height: 2160,
   },
   {
     id: "athletes",
@@ -25,6 +27,8 @@ const useCases = [
       "Train focus under fatigue. Measure recovery between sessions. Orbit gives competitive athletes the same cognitive visibility they already expect from physical metrics.",
     image: brandAssets.device.chess,
     imageAlt: "Neurostellar Orbit during chess-focused athletic training",
+    width: 2880,
+    height: 1620,
   },
   {
     id: "wellness",
@@ -34,6 +38,8 @@ const useCases = [
       "Guided breathwork, meditation, and journaling sessions — tracked with the same rigour as deep work. See how Speed, Agility, and Endurance shift across your day.",
     image: brandAssets.device.zen,
     imageAlt: "Neurostellar Orbit in a calm wellness and recovery setting",
+    width: 1920,
+    height: 1080,
   },
 ] as const;
 
@@ -108,24 +114,25 @@ export function OrbitUseCases() {
               </AnimatePresence>
             </div>
 
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-ns-border bg-ns-bg-card">
+            <div className="overflow-hidden rounded-2xl border border-ns-border bg-ns-bg-card">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={current.image}
-                  initial={{ opacity: 0, scale: 1.02 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                  className="absolute inset-0"
+                  transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                 >
                   <Image
                     src={current.image}
                     alt={current.imageAlt}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 560px"
+                    width={current.width}
+                    height={current.height}
+                    className="h-auto w-full object-contain"
+                    sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 50vw, 640px"
+                    quality={90}
+                    priority={current.id === "office"}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ns-bg-card/40 via-transparent to-transparent" />
                 </motion.div>
               </AnimatePresence>
             </div>

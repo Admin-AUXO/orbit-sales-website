@@ -16,19 +16,16 @@ const deviceSpecs: SpecRow[] = [
   { label: "Motion sensing", value: "Tri-axial accelerometer" },
   { label: "Battery", value: "8+ hours · USB-C fast charging" },
   { label: "Wireless", value: "Bluetooth Low Energy 5.4" },
-  { label: "Compatibility", value: "iOS & Android" },
+  { label: "Compatibility", value: "iOS, Android, Windows, MacOS" },
   { label: "Data & privacy", value: "Encrypted local-first storage" },
-  { label: "Session length", value: "10–15 minutes (intentional use)" },
-  { label: "Included software", value: "Neurostellar app · Performance coaching program" },
+  { label: "Session length", value: "10–15 minutes (intentional use)" }
 ];
 
 const inBox: SpecRow[] = [
-  { label: "Neurostellar Orbit", value: "Smart headgear with EEG + PPG sensors" },
-  { label: "USB-C cable", value: "Fast charging" },
-  { label: "Carrying case", value: "Protective travel storage" },
+  { label: "Device", value: "Orbit smart headband with EEG + PPG sensors" },
+  { label: "Charging Cable", value: "Braided USB-C cable" },
   { label: "Quick start guide", value: "Setup in minutes" },
-  { label: "App access", value: "iOS & Android — session history & trend reports" },
-  { label: "Coaching program", value: "Weekly review with a dedicated performance coach" },
+  { label: "App access", value: "iOS & Android — session history & trend reports" }
 ];
 
 function SpecTable({ rows, caption }: { rows: SpecRow[]; caption: string }) {

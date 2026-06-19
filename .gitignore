@@ -51,3 +51,6 @@ brand-assets/
 
 # Internal copy strategy and implementation specs
 docs/superpowers/specs/
+
+# Temporary files
+tmp/
