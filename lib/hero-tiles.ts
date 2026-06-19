@@ -29,8 +29,8 @@ export const heroTiles: HeroTile[] = [
     alt: "Racer wearing Orbit before a high-performance event",
   },
   {
-    src: brandAssets.hero.meditation,
-    alt: "Person wearing Orbit during a meditation and recovery session",
+    src: brandAssets.hero.archer,
+    alt: "Archer wearing Orbit during focused training",
   },
   {
     src: brandAssets.hero.musician,

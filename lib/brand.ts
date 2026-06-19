@@ -4,6 +4,7 @@ export const brandAssets = {
     horizontalDark: "/brand/logos/neurostellar-logo-horizontal-dark.svg",
     stackedLight: "/brand/logos/neurostellar-logo-stacked-light.svg",
     stackedDark: "/brand/logos/neurostellar-logo-stacked-dark.svg",
+    iitMadras: "/brand/logos/iit-madras-logo.svg",
   },
   video: {
     explodeLoop: "/brand/video/orbit-explode-loop.mp4",
@@ -30,10 +31,25 @@ export const brandAssets = {
     chessPlayer: "/brand/hero/chess-player.png",
     coder: "/brand/hero/coder.png",
     leisure: "/brand/hero/leisure.png",
+    archer: "/brand/hero/archer.png",
     meditation: "/brand/hero/meditation.png",
     musician: "/brand/hero/musician.png",
     painting: "/brand/hero/painting.png",
     racer: "/brand/hero/racer.png",
+  },
+  report: {
+    sessionReportPages: [
+      {
+        src: "/brand/report/executive-session-report-page1.png",
+        label: "Session scores & metrics",
+        alt: "Sample Neurostellar Orbit session report — cognitive scores and behavioural metrics",
+      },
+      {
+        src: "/brand/report/executive-session-report-page2.png",
+        label: "Session analysis",
+        alt: "Sample Neurostellar Orbit session report — cognitive state analysis and recommendations",
+      },
+    ],
   },
 } as const;
 

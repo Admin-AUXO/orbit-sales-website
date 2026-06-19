@@ -4,7 +4,6 @@ import { PageHeader } from "@/components/layout/PageHeader";
 import { CTABand } from "@/components/sections/CTABand";
 import { Card } from "@/components/ui/Card";
 import { FadeIn } from "@/components/ui/FadeIn";
-import { Button } from "@/components/ui/Button";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getCaseStudies } from "@/lib/content";
 import { articleJsonLd, breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
@@ -93,15 +92,6 @@ export default function AthletesPage() {
         </section>
       )}
 
-      <section className="py-16 text-center">
-        <div className="mx-auto max-w-[var(--ns-max-width)] px-6 lg:px-8">
-          <Button href="/buy">Buy Orbit</Button>
-          <span className="mx-4 text-ns-text-muted">or</span>
-          <Button href="/demo" variant="secondary">
-            Book a Demo
-          </Button>
-        </div>
-      </section>
       <CTABand />
     </PageShell>
   );

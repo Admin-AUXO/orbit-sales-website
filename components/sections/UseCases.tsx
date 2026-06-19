@@ -76,7 +76,7 @@ export function UseCases() {
                 <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-ns-accent">
                   {useCase.eyebrow}
                 </p>
-                <h2 className="text-2xl font-extrabold tracking-tight text-ns-text md:text-3xl lg:text-4xl">
+                <h2 className="text-2xl font-bold tracking-tight text-ns-text md:text-3xl lg:text-4xl">
                   {useCase.title}
                 </h2>
                 <p className="mt-5 text-base leading-relaxed text-ns-text-muted md:text-lg">
@@ -97,7 +97,7 @@ export function UseCases() {
 
                 {useCase.stat && (
                   <div className="mt-10 border-l-2 border-ns-accent pl-5">
-                    <p className="text-3xl font-extrabold text-ns-accent">{useCase.stat.value}</p>
+                    <p className="text-3xl font-bold text-ns-accent">{useCase.stat.value}</p>
                     <p className="mt-1 text-sm text-ns-text-muted">{useCase.stat.label}</p>
                   </div>
                 )}

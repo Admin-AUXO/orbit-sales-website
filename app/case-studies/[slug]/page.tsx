@@ -3,7 +3,8 @@ import Link from "next/link";
 import { PageShell } from "@/components/layout/PageShell";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Card } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
+import { FadeIn } from "@/components/ui/FadeIn";
+import { CTABand } from "@/components/sections/CTABand";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getCaseStudies, getCaseStudy } from "@/lib/content";
 import { articleJsonLd, breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
@@ -89,14 +90,9 @@ export default async function CaseStudyPage({ params }: Props) {
             </p>
           )}
 
-          <div className="mt-12 flex flex-wrap gap-4">
-            <Button href="/buy">Buy Orbit</Button>
-            <Button href="/demo" variant="secondary">
-              Book a Demo
-            </Button>
-          </div>
         </div>
       </article>
+      <CTABand />
     </PageShell>
   );
 }

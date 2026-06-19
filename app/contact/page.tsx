@@ -3,6 +3,7 @@ import { PageHeader } from "@/components/layout/PageHeader";
 import { Card } from "@/components/ui/Card";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { Button } from "@/components/ui/Button";
+import { CTABand } from "@/components/sections/CTABand";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
@@ -293,32 +294,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Quick links */}
-      <section className="py-16 md:py-20">
-        <div className="mx-auto max-w-[var(--ns-max-width)] px-6 lg:px-8">
-          <div className="rounded-2xl border border-ns-border bg-ns-bg-card px-8 py-10 text-center md:px-12">
-            <h2 className="font-display text-xl text-ns-text">Still have questions?</h2>
-            <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-ns-text-muted">
-              Browse our FAQ for product, trial, and support answers — or email us directly at{" "}
-              <a
-                href={`mailto:${SUPPORT_EMAIL}`}
-                className="text-ns-text underline decoration-ns-border underline-offset-4 transition-colors hover:text-ns-accent"
-              >
-                {SUPPORT_EMAIL}
-              </a>
-              .
-            </p>
-            <div className="mt-6 flex flex-wrap justify-center gap-3">
-              <Button href="/faq" variant="secondary">
-                Read the FAQ
-              </Button>
-              <Button href={SUPPORT_PHONE_HREF} variant="ghost">
-                Call {SUPPORT_PHONE}
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CTABand />
     </PageShell>
   );
 }

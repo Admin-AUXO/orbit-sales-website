@@ -1,5 +1,5 @@
 import { track } from "@vercel/analytics";
 
-export function trackCTA(action: "buy" | "demo", location: string) {
+export function trackCTA(action: "buy" | "demo" | "report", location: string) {
   track("cta_click", { action, location });
 }

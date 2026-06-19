@@ -1,32 +1,33 @@
+import {
+  Eyebrow,
+  SectionDescription,
+  SectionTitle,
+} from "@/components/ui/SectionTypography";
+
 export function SectionHeading({
   id,
   eyebrow,
   title,
   description,
+  align = "center",
 }: {
   id?: string;
   eyebrow?: string;
   title: string;
   description?: string;
+  align?: "center" | "left";
 }) {
+  const alignClass = align === "center" ? "mx-auto max-w-2xl text-center" : "max-w-2xl";
+
   return (
-    <div className="mx-auto mb-12 max-w-2xl text-center">
-      {eyebrow && (
-        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-ns-text-muted">
-          {eyebrow}
-        </p>
-      )}
-      <h2
-        id={id}
-        className="text-3xl font-extrabold tracking-tight text-ns-text md:text-5xl"
-      >
-        {title}
-      </h2>
-      {description && (
-        <p className="mt-4 text-lg leading-relaxed text-ns-text-muted">
+    <div className={`mb-10 ${alignClass}`}>
+      {eyebrow ? <Eyebrow className={align === "center" ? "mb-3" : "mb-4"}>{eyebrow}</Eyebrow> : null}
+      <SectionTitle id={id}>{title}</SectionTitle>
+      {description ? (
+        <SectionDescription className={`mt-4 ${align === "center" ? "mx-auto" : ""}`}>
           {description}
-        </p>
-      )}
+        </SectionDescription>
+      ) : null}
     </div>
   );
 }

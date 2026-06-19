@@ -1,14 +1,13 @@
 import { PageShell } from "@/components/layout/PageShell";
 import { CaseStudyHighlights } from "@/components/sections/CaseStudyHighlights";
+import { CredibilityStrip } from "@/components/sections/CredibilityStrip";
 import { CTABand } from "@/components/sections/CTABand";
 import { FeatureDeepDives } from "@/components/sections/FeatureDeepDives";
 import { Hero } from "@/components/sections/Hero";
+import { ProblemStatement } from "@/components/sections/ProblemStatement";
 import { HomeFAQ } from "@/components/sections/HomeFAQ";
-import { HowItWorks } from "@/components/sections/HowItWorks";
 import { ProductDemo } from "@/components/sections/ProductDemo";
 import { TeamSignal } from "@/components/sections/TeamSignal";
-import { TrustStrip } from "@/components/sections/TrustStrip";
-import { UseCases } from "@/components/sections/UseCases";
 import { WhatIsOrbit } from "@/components/sections/WhatIsOrbit";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getFaq } from "@/lib/content";
@@ -23,37 +22,34 @@ export default function HomePage() {
         data={[organizationJsonLd(), productJsonLd(), faqJsonLd(faq)]}
       />
 
-      {/* 1. Hook */}
+      {/* 1. Value — why Orbit matters */}
       <Hero />
 
-      {/* 2. Validation anchor */}
-      <TrustStrip />
+      {/* 2. Need — the gap we exist to fill */}
+      <ProblemStatement />
 
-      {/* 3. What is Orbit — outcome-first product intro */}
+      {/* 3. Origin — how and where we started */}
+      <CredibilityStrip />
+
+      {/* 4. Product — what Orbit is */}
       <WhatIsOrbit />
 
-      {/* 4. Why Orbit — Feature deep-dives: Focus / Resilience / Recovery */}
+      {/* 5. Benefits — what you get from the metrics */}
       <FeatureDeepDives />
 
-      {/* 5. Data hook — show a real session report before explaining how it works */}
+      {/* 6. Output — what a session looks like */}
       <ProductDemo />
 
-      {/* 6. How it works — Wear → Report → Coach */}
-      <HowItWorks />
-
-      {/* 7. Real use cases — Executives, Athletes, Knowledge Workers */}
-      <UseCases />
-
-      {/* 8. Proof — real results from real performers */}
+      {/* 7. Proof — early cohort results */}
       <CaseStudyHighlights />
 
-      {/* 9. Science credibility anchor */}
+      {/* 8. Science — brief credibility + deep-dive link */}
       <TeamSignal />
 
-      {/* 10. FAQ — remove purchase blockers */}
+      {/* 9. FAQ — remove remaining blockers */}
       <HomeFAQ items={faq} />
 
-      {/* 11. Close */}
+      {/* 10. Close — return to hero value prop */}
       <CTABand />
     </PageShell>
   );

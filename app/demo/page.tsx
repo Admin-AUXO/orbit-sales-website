@@ -2,6 +2,7 @@ import { PageShell } from "@/components/layout/PageShell";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { DemoForm } from "@/components/forms/DemoForm";
 import { Card } from "@/components/ui/Card";
+import { CTABand } from "@/components/sections/CTABand";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
@@ -65,6 +66,7 @@ export default function DemoPage() {
           </div>
         </div>
       </section>
+      <CTABand />
     </PageShell>
   );
 }

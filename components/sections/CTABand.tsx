@@ -1,37 +1,59 @@
+import { type ReactNode } from "react";
 import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { SectionDescription, SectionTitle, sectionPadding } from "@/components/ui/SectionTypography";
+import {
+  productCtaActions,
+  productCtaDescription,
+  productCtaTitle,
+  type CTAAction,
+} from "@/lib/cta-content";
 
-export function CTABand() {
+export type CTABandProps = {
+  title?: ReactNode;
+  description?: ReactNode;
+  actions?: CTAAction[];
+  footnote?: ReactNode;
+};
+
+export function CTABand({
+  title = productCtaTitle,
+  description = productCtaDescription,
+  actions = productCtaActions,
+  footnote,
+}: CTABandProps = {}) {
   return (
     <section
       id="cta"
       aria-labelledby="cta-heading"
-      className="relative overflow-hidden border-y border-ns-border py-24 md:py-32"
+      className={`relative overflow-hidden border-y border-ns-border ${sectionPadding}`}
     >
       <div className="absolute inset-0 aurora-bg opacity-80" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_100%,var(--ns-glow),transparent_60%)]" />
       <div className="relative mx-auto max-w-[var(--ns-max-width)] px-6 text-center lg:px-8">
         <FadeIn>
-          <h2
-            id="cta-heading"
-            className="text-3xl font-extrabold text-ns-text md:text-5xl"
-          >
-            Your brain is the one performance organ you&apos;ve never trained with data. Start now.
-          </h2>
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <Button href="/buy">Buy Orbit — $250</Button>
-            <Button
-              href="https://wa.me/917845216763"
-              variant="secondary"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Questions? Chat on WhatsApp
-            </Button>
+          <SectionTitle id="cta-heading" className="mx-auto max-w-2xl">
+            {title}
+          </SectionTitle>
+          {description ? (
+            <SectionDescription className="mx-auto mt-4 max-w-2xl">
+              {description}
+            </SectionDescription>
+          ) : null}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            {actions.map((action) => (
+              <Button
+                key={`${action.href}-${action.label}`}
+                href={action.href}
+                variant={action.variant}
+                target={action.target}
+                rel={action.rel}
+              >
+                {action.label}
+              </Button>
+            ))}
           </div>
-          <p className="mt-5 text-xs text-ns-text-muted/60">
-            Free shipping&nbsp;·&nbsp;Includes device + performance coaching program
-          </p>
+          {footnote ? <div className="mt-5">{footnote}</div> : null}
         </FadeIn>
       </div>
     </section>

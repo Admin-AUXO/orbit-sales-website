@@ -1,117 +1,113 @@
-import { FadeIn } from "@/components/ui/FadeIn";
-import { PlaceholderVisual } from "@/components/ui/PlaceholderVisual";
+"use client";
 
-const features = [
-  {
-    index: "01",
-    slug: "speed",
-    eyebrow: "Cognitive Speed",
-    title: "Know when your brain is at its sharpest — and use that window well.",
-    description:
-      "Cognitive Speed measures how quickly you enter and sustain deep, high-intensity focus. It tells you when you're absorbing information fast and processing at your best — so you can schedule your most demanding work for when it actually counts.",
-    bullets: [
-      "Tracks your brain's ability to rapidly enter high-focus states",
-      "Surfaces your natural high-speed processing window each session",
-      "Coach uses your speed score to time cognitive demands across your week",
-    ],
-    visual: {
-      title: "Cognitive Speed — Session Report",
-      designerNote:
-        "Arc gauge showing Cognitive Speed score (0–100). Score highlighted in the upper range. Below: a timeline graph showing rapid entry into deep work at session start. Caption: 'Speed 58.4 — above average entry pace'. Dark background, clean typography.",
-      aspectRatio: "aspect-[4/3]",
-    },
-    imageLeft: false,
-  },
-  {
-    index: "02",
-    slug: "agility",
-    eyebrow: "Cognitive Agility",
-    title: "See when your thinking flows easily — and when it's being forced.",
-    description:
-      "Cognitive Agility captures how smoothly your brain adapts, synthesises, and shifts between ideas. High agility means working from instinct and experience — not grinding through effort. Low agility is the first signal your mental resources are depleting.",
-    bullets: [
-      "Measures ease of idea synthesis and mental flow across a session",
-      "Identifies when effortful processing is replacing instinctive thinking",
-      "Gives your coach the signal to adjust session intensity or recovery timing",
-    ],
-    visual: {
-      title: "Cognitive Agility — Session Report",
-      designerNote:
-        "Arc gauge showing Cognitive Agility score (0–100). Score in mid-range with a trend arrow. Below: a flow-state indicator showing proportion of session spent in flow vs fragmented states. Caption: 'Agility 39.6 — synthesis capacity below peak'. Dark UI.",
-      aspectRatio: "aspect-[4/3]",
-    },
-    imageLeft: true,
-  },
-  {
-    index: "03",
-    slug: "endurance",
-    eyebrow: "Cognitive Endurance",
-    title: "Find out how long your peak performance actually lasts.",
-    description:
-      "Cognitive Endurance measures your ability to sustain consistent, high-quality thinking over time with minimal fragmentation. It reveals cognitive fatigue before it shows up in your decisions, your output, or your relationships.",
-    bullets: [
-      "Tracks performance stability across the full length of a session",
-      "Detects fragmentation — the earliest signal that endurance is dropping",
-      "Week-on-week trends show whether your protocols are building lasting capacity",
-    ],
-    visual: {
-      title: "Cognitive Endurance — Session Report",
-      designerNote:
-        "Arc gauge showing Cognitive Endurance score (0–100). Score in lower range. Below: a session timeline showing sustained engagement zones vs fragmented drop-offs. Caption: 'Endurance 33.9 — fragmentation increasing after 8 minutes'. Dark UI.",
-      aspectRatio: "aspect-[4/3]",
-    },
-    imageLeft: false,
-  },
-];
+import { useState } from "react";
+import { FadeIn } from "@/components/ui/FadeIn";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import {
+  Eyebrow,
+  SectionDescription,
+  SectionTitle,
+  sectionPadding,
+} from "@/components/ui/SectionTypography";
+import {
+  cognitiveMetrics,
+  type CognitiveMetric,
+} from "@/lib/cognitive-metrics-content";
+
+function MetricPanel({ metric }: { metric: CognitiveMetric }) {
+  return (
+    <div>
+      <Eyebrow>{metric.eyebrow}</Eyebrow>
+      <SectionTitle className="mt-3 text-2xl md:text-3xl">{metric.title}</SectionTitle>
+      <SectionDescription className="mt-4">{metric.context}</SectionDescription>
+      <p className="mt-4 text-sm leading-relaxed text-ns-text-muted md:text-base">
+        {metric.measure}
+      </p>
+
+      <div className="mt-6 rounded-xl border border-ns-border bg-ns-bg-elevated/40 p-5 md:p-6">
+        <Eyebrow className="tracking-[0.15em] text-ns-text-muted">
+          Questions it can help answer
+        </Eyebrow>
+        <ul className="mt-4 space-y-3">
+          {metric.questions.map((question) => (
+            <li
+              key={question}
+              className="flex items-start gap-3 text-sm leading-relaxed text-ns-text md:text-base"
+            >
+              <span
+                aria-hidden
+                className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-ns-silver"
+              />
+              {question}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
 
 export function FeatureDeepDives() {
-  return (
-    <section id="features" aria-label="Core features" className="py-8 md:py-12">
-      {features.map((feature, i) => (
-        <div
-          key={feature.slug}
-          className={`py-16 md:py-24 ${i % 2 === 1 ? "bg-ns-bg-elevated" : ""}`}
-        >
-          <div className="mx-auto max-w-[var(--ns-max-width)] px-6 lg:px-8">
-            <div
-              className={`grid items-center gap-12 lg:grid-cols-2 ${
-                feature.imageLeft ? "lg:[&>*:first-child]:order-2" : ""
-              }`}
-            >
-              {/* Text */}
-              <FadeIn delay={0.05}>
-                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-ns-accent">
-                  {feature.index} / {feature.eyebrow}
-                </p>
-                <h2 className="text-2xl font-extrabold tracking-tight text-ns-text md:text-3xl lg:text-4xl">
-                  {feature.title}
-                </h2>
-                <p className="mt-5 text-base leading-relaxed text-ns-text-muted md:text-lg">
-                  {feature.description}
-                </p>
-                <ul className="mt-8 space-y-3">
-                  {feature.bullets.map((bullet) => (
-                    <li key={bullet} className="flex items-start gap-3 text-sm text-ns-text-muted">
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-ns-accent" />
-                      {bullet}
-                    </li>
-                  ))}
-                </ul>
-              </FadeIn>
+  const [activeId, setActiveId] = useState<CognitiveMetric["id"]>("speed");
+  const activeMetric =
+    cognitiveMetrics.find((metric) => metric.id === activeId) ?? cognitiveMetrics[0];
 
-              {/* Visual placeholder */}
-              <FadeIn delay={0.15}>
-                <PlaceholderVisual
-                  title={feature.visual.title}
-                  designerNote={feature.visual.designerNote}
-                  aspectRatio={feature.visual.aspectRatio}
-                  className="w-full"
-                />
-              </FadeIn>
+  return (
+    <section
+      id="features"
+      aria-labelledby="features-heading"
+      className={`bg-ns-bg-elevated ${sectionPadding}`}
+    >
+      <div className="mx-auto max-w-[var(--ns-max-width)] px-6 lg:px-8">
+        <SectionHeading
+          id="features-heading"
+          eyebrow="What you get"
+          title="Three scores. Practical answers."
+          description="Speed, Agility, and Endurance translate every session into insight — when you perform best, how you adapt, and how long you can sustain focus."
+        />
+
+        <FadeIn>
+          <div className="mx-auto max-w-3xl">
+            <div
+              role="tablist"
+              aria-label="Cognitive metrics"
+              className="grid grid-cols-3 gap-2 rounded-2xl border border-ns-border bg-ns-bg-card p-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] md:gap-2.5 md:p-2.5"
+            >
+              {cognitiveMetrics.map((metric) => {
+                const isActive = metric.id === activeId;
+
+                return (
+                  <button
+                    key={metric.id}
+                    type="button"
+                    role="tab"
+                    id={`metric-tab-${metric.id}`}
+                    aria-selected={isActive}
+                    aria-controls={`metric-panel-${metric.id}`}
+                    onClick={() => setActiveId(metric.id)}
+                    className={`cursor-pointer rounded-xl px-3 py-3 text-sm font-bold transition md:px-5 md:py-3.5 md:text-base ${
+                      isActive
+                        ? "bg-ns-accent text-ns-on-accent shadow-md shadow-black/30"
+                        : "bg-transparent text-ns-text-muted hover:bg-ns-accent-muted hover:text-ns-text"
+                    } focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ns-accent`}
+                  >
+                    {metric.tabLabel}
+                  </button>
+                );
+              })}
+            </div>
+
+            <div
+              role="tabpanel"
+              id={`metric-panel-${activeMetric.id}`}
+              aria-labelledby={`metric-tab-${activeMetric.id}`}
+              className="mt-8"
+            >
+              <MetricPanel metric={activeMetric} />
             </div>
           </div>
-        </div>
-      ))}
+        </FadeIn>
+      </div>
     </section>
   );
 }

@@ -12,10 +12,10 @@ export const primaryCtaLabel = "Book a Demo";
 export const secondaryCtaHref = "/report";
 export const secondaryCtaLabel = "See What You'll Unlock";
 
-export const productCtaTitle = "Ready to train your brain with data?";
+export const productCtaTitle = "Train your brain like you train your body.";
 
 export const productCtaDescription =
-  "One device. One coaching program. Cognitive Speed, Agility, and Endurance — after every session.";
+  "Understand how your brain is performing — then make better decisions about focus, work, training, and recovery.";
 
 export const productCtaActions: CTAAction[] = [
   { href: primaryCtaHref, label: primaryCtaLabel },

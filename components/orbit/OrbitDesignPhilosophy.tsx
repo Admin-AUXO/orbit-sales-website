@@ -36,7 +36,7 @@ export function OrbitDesignPhilosophy() {
             </p>
             <h2
               id="why-orbit-heading"
-              className="text-3xl font-extrabold tracking-tight text-ns-text md:text-4xl"
+              className="text-3xl font-bold tracking-tight text-ns-text md:text-4xl"
             >
               Why Orbit is built the way it is
             </h2>

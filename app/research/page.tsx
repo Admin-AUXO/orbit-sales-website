@@ -2,7 +2,7 @@ import { PageShell } from "@/components/layout/PageShell";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Card } from "@/components/ui/Card";
 import { FadeIn } from "@/components/ui/FadeIn";
-import { Button } from "@/components/ui/Button";
+import { CTABand } from "@/components/sections/CTABand";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getTrials } from "@/lib/content";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
@@ -72,13 +72,9 @@ export default function ResearchPage() {
               </FadeIn>
             ))}
           </div>
-          <div className="mt-12 text-center">
-            <Button href="/science" variant="secondary">
-              Explore the science
-            </Button>
-          </div>
         </div>
       </section>
+      <CTABand />
     </PageShell>
   );
 }

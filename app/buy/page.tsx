@@ -4,6 +4,7 @@ import { PageHeader } from "@/components/layout/PageHeader";
 import { ReserveForm } from "@/components/forms/ReserveForm";
 import { Card } from "@/components/ui/Card";
 import { DeviceSlideshow } from "@/components/ui/DeviceSlideshow";
+import { CTABand } from "@/components/sections/CTABand";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbJsonLd, pageMetadata, productJsonLd } from "@/lib/seo";
 
@@ -50,7 +51,7 @@ export default function BuyPage() {
               <div className="mt-6">
                 <h2 className="text-2xl font-bold text-ns-text">Neurostellar Orbit™</h2>
                 <p className="mt-2 text-ns-text-muted">Premium mental fitness wearable</p>
-                <p className="mt-6 text-4xl font-extrabold text-ns-text">$250</p>
+                <p className="mt-6 text-4xl font-bold text-ns-text">$250</p>
                 <p className="mt-1 text-sm text-ns-text-muted">Includes device + performance coaching program · Free shipping</p>
                 <ul className="mt-8 space-y-3">
                   {features.map((f) => (
@@ -76,6 +77,7 @@ export default function BuyPage() {
           </div>
         </div>
       </section>
+      <CTABand />
     </PageShell>
   );
 }

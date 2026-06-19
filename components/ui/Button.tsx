@@ -33,7 +33,7 @@ export function Button({
       href={href}
       target={target}
       rel={rel}
-      className={`inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium tracking-wide transition-colors ${variants[variant]} ${className}`}
+      className={`inline-flex cursor-pointer items-center justify-center rounded-full px-6 py-3 text-sm font-semibold tracking-wide transition-colors ${variants[variant]} ${className}`}
     >
       {children}
     </Link>

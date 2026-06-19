@@ -48,7 +48,7 @@ export function ArcGauge({ label, score, color, size = 100 }: ArcGaugeProps) {
           x={cx}
           y={cy - 4}
           textAnchor="middle"
-          className="fill-ns-text text-[18px] font-extrabold"
+          className="fill-ns-text text-[18px] font-bold"
           style={{ fontSize: size * 0.18 }}
         >
           {score.toFixed(1)}

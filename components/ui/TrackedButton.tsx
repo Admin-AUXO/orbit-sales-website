@@ -26,7 +26,7 @@ export function TrackedButton({
   variant?: ButtonVariant;
   children: ReactNode;
   className?: string;
-  action: "buy" | "demo";
+  action: "buy" | "demo" | "report";
   location: string;
 }) {
   return (

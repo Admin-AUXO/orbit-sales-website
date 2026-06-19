@@ -1,61 +1,84 @@
-import Link from "next/link";
 import { Card } from "@/components/ui/Card";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { getFeaturedCaseStudies } from "@/lib/content";
+import { Eyebrow, sectionPadding } from "@/components/ui/SectionTypography";
+import {
+  cohortProofs,
+  proofFootnote,
+  proofHeadline,
+  type CohortMetric,
+} from "@/lib/cohort-proof";
+
+const personaLabel = {
+  athlete: "Athletes",
+  executive: "Executives",
+} as const;
+
+function MetricPill({ metric }: { metric: CohortMetric }) {
+  return (
+    <div className="rounded-xl border border-ns-border/60 bg-ns-bg-elevated/40 px-3 py-2.5 text-center">
+      <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-ns-silver">
+        {metric.name}
+      </p>
+      <p className="mt-1.5 text-base font-bold tabular-nums tracking-tight text-ns-text sm:text-lg">
+        {metric.improved} of {metric.total}
+      </p>
+      <p className="mt-0.5 text-[10px] font-medium leading-tight text-ns-text-muted">
+        users improved
+      </p>
+    </div>
+  );
+}
 
 export function CaseStudyHighlights() {
-  const studies = getFeaturedCaseStudies();
-
   return (
     <section
       id="case-studies"
       aria-labelledby="case-studies-heading"
-      className="py-24 md:py-32"
+      className={`bg-ns-bg-elevated ${sectionPadding}`}
     >
       <div className="mx-auto max-w-[var(--ns-max-width)] px-6 lg:px-8">
         <SectionHeading
           id="case-studies-heading"
-          eyebrow="Proof"
+          eyebrow="Proof that our approach works"
           title="Real performers. Measurable results."
-          description="How athletes and executives use Neurostellar Orbit to unlock their edge."
+          description="Early cohort data from structured programmes — chess academy and executive deep-work pilots."
         />
-        <div className="grid gap-6 md:grid-cols-2">
-          {studies.map((study, i) => (
-            <FadeIn key={study.slug} delay={i * 0.1}>
-              <Link href={`/case-studies/${study.slug}`}>
-                <Card className="h-full transition-colors hover:border-ns-accent/50">
-                  <p className="text-xs font-medium uppercase tracking-[0.15em] text-ns-accent">
-                    {study.persona}
-                  </p>
-                  <h3 className="mt-3 font-display text-2xl text-ns-text">
-                    {study.headline}
-                  </h3>
-                  <blockquote className="mt-4 border-l-2 border-ns-accent pl-4 italic text-ns-text-muted">
-                    &ldquo;{study.quote}&rdquo;
-                  </blockquote>
-                  <p className="mt-4 text-sm text-ns-text-muted">— {study.name}</p>
-                  {study.results[0] && (
-                    <p className="mt-6 text-3xl font-medium text-ns-accent">
-                      {study.results[0].change}
-                      <span className="ml-2 text-sm font-normal text-ns-text-muted">
-                        {study.results[0].metric}
-                      </span>
-                    </p>
-                  )}
-                </Card>
-              </Link>
+
+        <FadeIn>
+          <div className="rounded-2xl border border-ns-border bg-ns-bg-card px-6 py-8 text-center md:px-10 md:py-9">
+            <p className="text-4xl font-bold tabular-nums tracking-tight text-ns-text md:text-5xl">
+              {proofHeadline.value}
+            </p>
+            <p className="mx-auto mt-3 max-w-2xl text-base leading-relaxed text-ns-text-muted">
+              {proofHeadline.label}
+            </p>
+          </div>
+        </FadeIn>
+
+        <div className="mt-6 grid gap-6 md:grid-cols-2">
+          {cohortProofs.map((proof, i) => (
+            <FadeIn key={proof.cohort} delay={0.08 + i * 0.08}>
+              <Card className="h-full">
+                <Eyebrow className="tracking-[0.15em]">{personaLabel[proof.persona]}</Eyebrow>
+                <h3 className="mt-2 text-xl font-bold text-ns-text">{proof.cohort}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-ns-text-muted">{proof.context}</p>
+
+                <div className="mt-6 grid grid-cols-3 gap-3">
+                  {proof.metrics.map((metric) => (
+                    <MetricPill key={metric.name} metric={metric} />
+                  ))}
+                </div>
+              </Card>
             </FadeIn>
           ))}
         </div>
-        <div className="mt-10 text-center">
-          <Link
-            href="/case-studies"
-            className="text-sm font-medium text-ns-accent hover:underline"
-          >
-            View all case studies →
-          </Link>
-        </div>
+
+        <FadeIn delay={0.2}>
+          <p className="mt-8 text-center text-xs leading-relaxed text-ns-text-muted/80">
+            {proofFootnote}
+          </p>
+        </FadeIn>
       </div>
     </section>
   );

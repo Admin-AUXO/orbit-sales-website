@@ -1,6 +1,14 @@
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { HeroImageTiles } from "@/components/sections/HeroImageTiles";
+import { brandAssets } from "@/lib/brand";
+import {
+  primaryCtaHref,
+  primaryCtaLabel,
+  secondaryCtaHref,
+  secondaryCtaLabel,
+} from "@/lib/cta-content";
 
 export function Hero() {
   return (
@@ -26,20 +34,27 @@ export function Hero() {
               Train your brain like you train your body.
             </h1>
             <p className="mt-6 text-lg leading-relaxed text-ns-text-muted sm:text-xl">
-              Orbit gives your brain its first real metrics — cognitive speed,
-              agility, and endurance. Ten minutes of data. A lifetime of better
-              decisions.
+              Orbit helps you understand how your brain is performing,
+              so you can make better decisions about focus, work, training and recovery.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-4">
-              <Button href="/buy">Buy Orbit — $250</Button>
-              <Button href="/demo" variant="secondary">
-                Book a Demo
+              <Button href={primaryCtaHref}>{primaryCtaLabel}</Button>
+              <Button href={secondaryCtaHref} variant="secondary">
+                {secondaryCtaLabel}
               </Button>
             </div>
-            <p className="mt-5 text-xs text-ns-text-muted/60">
-              Free shipping&nbsp;·&nbsp;400+ hours of validated cognitive
-              data&nbsp;·&nbsp;IIT Madras R&amp;D
-            </p>
+            <div className="mt-10 flex items-center gap-4 sm:gap-5">
+              <span className="shrink-0 text-xs font-semibold uppercase tracking-[0.2em] text-ns-silver">
+                Incubated &amp; backed by
+              </span>
+              <Image
+                src={brandAssets.logos.iitMadras}
+                alt="IIT Madras"
+                width={150}
+                height={150}
+                className="h-[3.375rem] w-auto sm:h-[3.75rem]"
+              />
+            </div>
           </FadeIn>
 
           <FadeIn delay={0.1}>

@@ -25,7 +25,7 @@ function StaticNarrative({
       <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c9d1d9]">
         {chapter.eyebrow}
       </p>
-      <h2 className="mt-3 text-xl font-extrabold tracking-tight text-white sm:mt-4 sm:text-2xl lg:text-[1.65rem] lg:leading-snug">
+      <h2 className="mt-3 text-xl font-bold tracking-tight text-white sm:mt-4 sm:text-2xl lg:text-[1.65rem] lg:leading-snug">
         {chapter.title}
       </h2>
       <p className="mt-3 text-sm leading-relaxed text-white sm:mt-4 sm:text-base">
@@ -105,7 +105,7 @@ export function NarrativePanel({
         play={hasPlayed}
         delay={0.1}
         reduceMotion={reduceMotion}
-        className="mt-3 text-xl font-extrabold tracking-tight text-white sm:mt-4 sm:text-2xl lg:text-[1.65rem] lg:leading-snug"
+        className="mt-3 text-xl font-bold tracking-tight text-white sm:mt-4 sm:text-2xl lg:text-[1.65rem] lg:leading-snug"
       >
         {chapter.title}
       </FadeLine>

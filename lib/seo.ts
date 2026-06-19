@@ -87,7 +87,7 @@ export function productJsonLd() {
     offers: {
       "@type": "Offer",
       availability: "https://schema.org/PreOrder",
-      url: `${SITE_URL}/buy`,
+      url: `${SITE_URL}/demo`,
     },
   };
 }

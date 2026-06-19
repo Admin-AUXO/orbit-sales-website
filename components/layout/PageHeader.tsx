@@ -21,7 +21,7 @@ export function PageHeader({
               {eyebrow}
             </p>
           )}
-          <h1 className="text-4xl font-extrabold tracking-tight text-ns-text md:text-6xl">
+          <h1 className="text-4xl font-bold tracking-tight text-ns-text md:text-6xl">
             {title}
           </h1>
           {description && (
