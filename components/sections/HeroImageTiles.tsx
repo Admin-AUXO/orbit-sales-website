@@ -24,7 +24,7 @@ function HeroImageTile({
           fill
           priority={priority}
           className="object-cover"
-          sizes="(max-width: 768px) 52vw, 240px"
+          sizes="(max-width: 1280px) 40vw, 240px"
         />
       </div>
       <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-white/10" />
@@ -66,10 +66,10 @@ export function HeroImageTiles() {
 
   return (
     <>
-      {/* Mobile — horizontal infinite scroll */}
+      {/* Mobile & tablet — horizontal infinite scroll */}
       <div
         aria-hidden
-        className="group/tiles hero-tiles-mask-x relative mt-10 overflow-hidden md:hidden"
+        className="group/tiles hero-tiles-mask-x relative mt-10 overflow-hidden xl:hidden"
       >
         <div className="flex w-max animate-marquee-hero gap-5 group-hover/tiles:[animation-play-state:paused]">
           {[...heroTiles, ...heroTiles].map((tile, i) => (
@@ -86,7 +86,7 @@ export function HeroImageTiles() {
       {/* Desktop — staggered 2-column vertical infinite scroll */}
       <div
         aria-hidden
-        className="group/tiles hero-tiles-mask-y relative mt-14 hidden h-[min(640px,75vh)] overflow-hidden sm:-mt-32 md:mt-0 md:block lg:justify-self-end lg:-translate-x-8 xl:-translate-x-14"
+        className="group/tiles hero-tiles-mask-y relative mt-14 hidden h-[min(640px,75vh)] overflow-hidden xl:block xl:justify-self-end xl:-translate-x-8 2xl:-translate-x-14"
       >
         <div className="flex justify-end gap-6 sm:gap-7">
           <div className="shrink-0 pt-10 sm:pt-16">

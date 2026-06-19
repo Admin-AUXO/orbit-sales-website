@@ -13,7 +13,7 @@ export function Hero() {
       <div className="absolute inset-0 mesh-overlay opacity-40" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,var(--ns-glow-strong),transparent_50%)]" />
 
-      <div className="relative mx-auto w-full max-w-[var(--ns-max-width)] px-6 pb-24 pt-10 sm:pb-32 lg:px-8 lg:py-32">
+      <div className="relative mx-auto w-full max-w-[var(--ns-max-width)] px-6 py-24 lg:px-8 lg:py-32">
         <div className="mx-auto max-w-2xl gap-x-14 gap-y-16 xl:max-w-none xl:grid xl:grid-cols-2 xl:items-center">
           <FadeIn className="relative z-10 xl:max-w-xl">
             <p className="mb-4 inline-block rounded-full border border-ns-border bg-ns-accent-muted px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.25em] text-ns-silver">
