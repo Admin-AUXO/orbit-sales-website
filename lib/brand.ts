@@ -25,6 +25,16 @@ export const brandAssets = {
     down: "/brand/device/Down_Orbit.webp",
     exploded: "/brand/device/Exploded_Orbit.webp",
   },
+  hero: {
+    boardMeeting: "/brand/hero/board-meeting.png",
+    chessPlayer: "/brand/hero/chess-player.png",
+    coder: "/brand/hero/coder.png",
+    leisure: "/brand/hero/leisure.png",
+    meditation: "/brand/hero/meditation.png",
+    musician: "/brand/hero/musician.png",
+    painting: "/brand/hero/painting.png",
+    racer: "/brand/hero/racer.png",
+  },
 } as const;
 
 /** All product-angle shots for buy-page slideshow */
