@@ -4,6 +4,12 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { TrackedButton } from "@/components/ui/TrackedButton";
+import {
+  primaryCtaHref,
+  primaryCtaLabel,
+  secondaryCtaHref,
+  secondaryCtaLabel,
+} from "@/lib/cta-content";
 import { brandAssets } from "@/lib/brand";
 
 type NavChild = { label: string; href: string };
@@ -20,20 +26,9 @@ const nav: NavItem[] = [
     ],
   },
   {
-    label: "Customers",
-    children: [
-      { label: "Athletes",   href: "/athletes" },
-      { label: "Executives", href: "/executives" },
-    ],
-  },
-  { label: "Case Studies", href: "/case-studies" },
-  { label: "Research",     href: "/research" },
-  {
     label: "Company",
     children: [
       { label: "About Us",   href: "/about" },
-      { label: "Our Team",   href: "/team" },
-      { label: "Careers",    href: "/careers" },
       { label: "Contact Us", href: "/contact" },
     ],
   },
@@ -153,23 +148,23 @@ export function Header() {
         <div className="flex items-center gap-3">
           <div className="hidden lg:flex">
             <TrackedButton
-              href="/demo"
+              href={secondaryCtaHref}
               variant="secondary"
-              action="demo"
+              action="report"
               location="header"
               className="px-4 py-2.5 text-xs lg:px-6 lg:text-sm"
             >
-              Book a Demo
+              {secondaryCtaLabel}
             </TrackedButton>
           </div>
           <TrackedButton
-            href="/buy"
+            href={primaryCtaHref}
             variant="primary"
-            action="buy"
+            action="demo"
             location="header"
             className="px-4 py-2.5 text-xs lg:px-6 lg:text-sm"
           >
-            Buy Orbit
+            {primaryCtaLabel}
           </TrackedButton>
 
           <button
@@ -253,15 +248,24 @@ export function Header() {
             )
           )}
 
-          <div className="mt-5 lg:hidden">
+          <div className="mt-5 flex flex-col gap-3 lg:hidden">
             <TrackedButton
-              href="/buy"
+              href={primaryCtaHref}
               variant="primary"
-              action="buy"
+              action="demo"
               location="mobile-nav"
               className="w-full justify-center"
             >
-              Buy Orbit
+              {primaryCtaLabel}
+            </TrackedButton>
+            <TrackedButton
+              href={secondaryCtaHref}
+              variant="secondary"
+              action="report"
+              location="mobile-nav"
+              className="w-full justify-center"
+            >
+              {secondaryCtaLabel}
             </TrackedButton>
           </div>
         </nav>

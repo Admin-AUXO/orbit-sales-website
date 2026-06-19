@@ -2,18 +2,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { brandAssets } from "@/lib/brand";
+import {
+  primaryCtaHref,
+  primaryCtaLabel,
+  secondaryCtaHref,
+  secondaryCtaLabel,
+} from "@/lib/cta-content";
 
 const links = {
   Product: [
     { href: "/orbit", label: "Orbit" },
-    { href: "/buy", label: "Buy" },
-    { href: "/demo", label: "Book a Demo" },
-  ],
-  Proof: [
-    { href: "/athletes", label: "For Athletes" },
-    { href: "/executives", label: "For Executives" },
-    { href: "/case-studies", label: "Case Studies" },
-    { href: "/research", label: "Research & Trials" },
+    { href: "/demo", label: primaryCtaLabel },
+    { href: "/report", label: secondaryCtaLabel },
   ],
   Learn: [
     { href: "/science", label: "The Science" },
@@ -40,10 +40,10 @@ export function Footer() {
               refuse to settle. Neurostellar Orbit turns brain and body data
               into your competitive edge.
             </p>
-            <div className="flex gap-3">
-              <Button href="/buy">Buy Orbit</Button>
-              <Button href="/demo" variant="secondary">
-                Book a Demo
+            <div className="flex flex-wrap gap-3">
+              <Button href={primaryCtaHref}>{primaryCtaLabel}</Button>
+              <Button href={secondaryCtaHref} variant="secondary">
+                {secondaryCtaLabel}
               </Button>
             </div>
           </div>
