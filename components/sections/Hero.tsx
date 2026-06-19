@@ -37,14 +37,16 @@ export function Hero() {
               Orbit helps you understand how your brain is performing,
               so you can make better decisions about focus, work, training and recovery.
             </p>
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <Button href={primaryCtaHref}>{primaryCtaLabel}</Button>
-              <Button href={secondaryCtaHref} variant="secondary">
+            <div className="mt-10 flex w-full flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+              <Button href={primaryCtaHref} className="w-full sm:w-auto">
+                {primaryCtaLabel}
+              </Button>
+              <Button href={secondaryCtaHref} variant="secondary" className="w-full sm:w-auto">
                 {secondaryCtaLabel}
               </Button>
             </div>
-            <div className="mt-10 flex items-center gap-4 sm:gap-5">
-              <span className="shrink-0 text-xs font-semibold uppercase tracking-[0.2em] text-ns-silver">
+            <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:items-center sm:gap-5">
+              <span className="shrink-0 text-center text-xs font-semibold uppercase tracking-[0.2em] text-ns-silver sm:text-left">
                 Incubated &amp; backed by
               </span>
               <Image

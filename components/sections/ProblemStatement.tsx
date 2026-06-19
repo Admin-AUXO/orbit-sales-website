@@ -16,14 +16,21 @@ const lines = [
   "Orbit helps make cognitive performance measurable.",
 ] as const;
 
-/** Scroll distance while the statement stays pinned (vh). */
-const SCROLL_HEIGHT_VH = 280;
+/** Scroll distance while the statement stays pinned (vh). Kept tight to avoid dead space after reveal. */
+const scrollTrackClassName =
+  "h-[170vh] min-[451px]:h-[175vh] md:h-[140vh] xl:h-[195vh]";
+
+const stickyPanelClassName =
+  "sticky top-16 flex overflow-hidden py-8 max-xl:min-h-0 max-xl:items-start max-md:pt-10 md:py-10 max-[450px]:overflow-y-auto max-[450px]:pt-12 max-[450px]:pb-6 xl:top-20 xl:min-h-[calc(100dvh-5rem)] xl:items-center xl:py-14";
 
 /** Dead zone at top/bottom of scroll before color reveal runs (0–1). */
 const SCROLL_BUFFER = 0.08;
 
 const DIM_COLOR = "#2e2e34";
 const REVEAL_COLOR = "#ffffff";
+
+const problemTextClassName =
+  "max-w-5xl text-[36px] font-light leading-[1.25] tracking-[-0.02em] max-[450px]:text-[28px] max-[450px]:leading-[1.3]";
 
 function RevealLine({
   text,
@@ -75,7 +82,7 @@ export function ProblemStatement() {
         className="border-y border-ns-border/40 bg-ns-bg py-16 md:py-20"
       >
         <div className="mx-auto max-w-[var(--ns-max-width)] px-6 lg:px-8">
-          <p className="max-w-5xl text-[36px] font-light leading-[1.25] tracking-[-0.02em] text-[#2e2e34]">
+          <p className={`${problemTextClassName} text-[#2e2e34]`}>
             {lines.map((line) => (
               <span key={line} className="mb-4 block last:mb-0">
                 {line}
@@ -92,12 +99,11 @@ export function ProblemStatement() {
       ref={containerRef}
       id="problem-statement"
       aria-label="The need for cognitive measurement"
-      className="relative bg-ns-bg"
-      style={{ height: `${SCROLL_HEIGHT_VH}vh` }}
+      className={`relative bg-ns-bg ${scrollTrackClassName}`}
     >
-      <div className="sticky top-16 flex h-[calc(100dvh-4rem)] items-center overflow-hidden py-12 lg:top-20 lg:h-[calc(100dvh-5rem)] lg:py-16">
+      <div className={stickyPanelClassName}>
         <div className="mx-auto w-full max-w-[var(--ns-max-width)] px-6 lg:px-8">
-          <p className="max-w-5xl text-[36px] font-light leading-[1.25] tracking-[-0.02em]">
+          <p className={problemTextClassName}>
             {lines.map((line, index) => (
               <span key={line} className="mb-[0.45em] block last:mb-0">
                 <RevealLine

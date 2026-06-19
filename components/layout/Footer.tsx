@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/Button";
+// import { Button } from "@/components/ui/Button";
 import { brandAssets } from "@/lib/brand";
 import {
-  primaryCtaHref,
   primaryCtaLabel,
-  secondaryCtaHref,
   secondaryCtaLabel,
+  // primaryCtaHref,
+  // secondaryCtaHref,
 } from "@/lib/cta-content";
 
 const links = {
@@ -24,10 +24,10 @@ const links = {
 export function Footer() {
   return (
     <footer className="border-t border-ns-border bg-ns-bg-elevated">
-      <div className="mx-auto max-w-[var(--ns-max-width)] px-6 py-16 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_2fr]">
+      <div className="mx-auto max-w-[var(--ns-max-width)] px-6 py-12 md:py-14 lg:px-8 lg:py-16">
+        <div className="grid gap-8 md:grid-cols-2 md:items-start md:gap-x-10 lg:grid-cols-[1.4fr_2fr] lg:gap-x-12 lg:gap-y-0">
           <div>
-            <Link href="/" className="relative mb-6 block h-8 w-40">
+            <Link href="/" className="relative mb-5 block h-8 w-40">
               <Image
                 src={brandAssets.logos.horizontalLight}
                 alt="Neurostellar"
@@ -35,25 +35,28 @@ export function Footer() {
                 className="object-contain object-left"
               />
             </Link>
-            <p className="mb-6 max-w-sm text-sm leading-relaxed text-ns-text-muted">
+            <p className="max-w-sm text-sm leading-relaxed text-ns-text-muted">
               Neuroscience-driven mental fitness for athletes and executives who
               refuse to settle. Neurostellar Orbit turns brain and body data
               into your competitive edge.
             </p>
-            <div className="flex flex-wrap gap-3">
+            {/* Footer CTA buttons — hidden for now; restore when needed
+            <div className="mt-6 flex flex-wrap gap-3">
               <Button href={primaryCtaHref}>{primaryCtaLabel}</Button>
               <Button href={secondaryCtaHref} variant="secondary">
                 {secondaryCtaLabel}
               </Button>
             </div>
+            */}
           </div>
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
+
+          <div className="grid grid-cols-2 gap-x-10 gap-y-6 sm:gap-x-14 md:max-w-sm md:justify-self-end lg:max-w-none lg:justify-self-auto lg:gap-x-16">
             {Object.entries(links).map(([group, items]) => (
               <div key={group}>
-                <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.15em] text-ns-text">
+                <h3 className="mb-3 text-xs font-semibold uppercase tracking-[0.15em] text-ns-text">
                   {group}
                 </h3>
-                <ul className="space-y-3">
+                <ul className="space-y-2.5">
                   {items.map((item) => (
                     <li key={item.href}>
                       <Link
@@ -69,9 +72,10 @@ export function Footer() {
             ))}
           </div>
         </div>
-        <div className="mt-12 flex flex-col gap-4 border-t border-ns-border pt-8 text-sm text-ns-text-muted sm:flex-row sm:items-center sm:justify-between">
+
+        <div className="mt-10 flex flex-col gap-4 border-t border-ns-border pt-6 text-sm text-ns-text-muted md:mt-12 md:flex-row md:items-center md:justify-between md:pt-8">
           <p>© {new Date().getFullYear()} Neurostellar. All rights reserved.</p>
-          <div className="flex gap-6">
+          <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:gap-x-6 sm:gap-y-1">
             <a href="mailto:support@neuro-stellar.com" className="hover:text-ns-text">
               support@neuro-stellar.com
             </a>
