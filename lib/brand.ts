@@ -53,7 +53,7 @@ export const brandAssets = {
   },
 } as const;
 
-/** All product-angle shots for buy-page slideshow */
+/** All product-angle shots for device slideshow */
 export const deviceSlideshow = [
   { src: brandAssets.device.front, label: "Front" },
   { src: brandAssets.device.angle, label: "Angle" },
