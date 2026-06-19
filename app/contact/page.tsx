@@ -45,7 +45,7 @@ const channels: ContactChannel[] = [
     email: SUPPORT_EMAIL,
     phone: SUPPORT_PHONE,
     phoneHref: SUPPORT_PHONE_HREF,
-    cta: { label: "Buy Orbit", href: "/buy" },
+    // cta: { label: "Buy Orbit", href: "/buy" },
   },
   {
     id: "b2b",
@@ -60,10 +60,10 @@ const channels: ContactChannel[] = [
       "You want to integrate Orbit with your platform or product",
     ],
     team: "Partnerships",
-    email: "partnerships@neuro-stellar.com",
+    email: "business@neuro-stellar.com",
     phone: SUPPORT_PHONE,
     phoneHref: SUPPORT_PHONE_HREF,
-    cta: { label: "Book a demo", href: "/demo" },
+    // cta: { label: "Book a demo", href: "/demo" },
   },
   {
     id: "investors",
@@ -77,7 +77,7 @@ const channels: ContactChannel[] = [
       "You would like to speak directly with the founding team",
     ],
     team: "Founders",
-    email: "investors@neuro-stellar.com",
+    email: "karthik@neuro-stellar.com, dhanushya@neuro-stellar.com",
   },
   {
     id: "research",
@@ -92,7 +92,7 @@ const channels: ContactChannel[] = [
     ],
     team: "Research & science",
     email: "research@neuro-stellar.com",
-    cta: { label: "View research", href: "/research" },
+    // cta: { label: "View research", href: "/research" },
   },
   {
     id: "general",
@@ -109,7 +109,7 @@ const channels: ContactChannel[] = [
     email: SUPPORT_EMAIL,
     phone: SUPPORT_PHONE,
     phoneHref: SUPPORT_PHONE_HREF,
-    cta: { label: "View careers", href: "/careers" },
+    // cta: { label: "View careers", href: "/careers" },
   },
 ];
 
@@ -201,6 +201,7 @@ function ContactCard({ channel }: { channel: ContactChannel }) {
             </a>
           )}
         </div>
+        {/* Card CTAs — uncomment channel.cta above and this block to restore action buttons
         {channel.cta && (
           <div className="mt-5">
             <Button href={channel.cta.href} variant="secondary">
@@ -208,6 +209,7 @@ function ContactCard({ channel }: { channel: ContactChannel }) {
             </Button>
           </div>
         )}
+        */}
       </div>
     </Card>
   );
