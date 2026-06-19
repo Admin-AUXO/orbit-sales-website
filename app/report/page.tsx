@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { PageShell } from "@/components/layout/PageShell";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { CTABand } from "@/components/sections/CTABand";
@@ -30,15 +29,6 @@ export default function ExecutiveReportPage() {
       />
 
       <ExecutiveReportTour />
-
-      <div className="mx-auto max-w-[var(--ns-max-width)] px-6 pb-4 text-center lg:px-8">
-        <Link
-          href="/executives"
-          className="text-sm text-ns-text-muted underline-offset-4 hover:text-ns-accent hover:underline"
-        >
-          ← Back to For Executives
-        </Link>
-      </div>
 
       <CTABand />
     </PageShell>
