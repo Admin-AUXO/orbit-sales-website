@@ -2,6 +2,9 @@ import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
+// Generated once at build time for the static export.
+export const dynamic = "force-static";
+
 export const alt =
   "Neurostellar Orbit — Mental Fitness for Peak Performance";
 export const size = { width: 1200, height: 630 };

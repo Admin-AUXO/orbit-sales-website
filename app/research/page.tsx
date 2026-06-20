@@ -6,6 +6,7 @@ import { CTABand } from "@/components/sections/CTABand";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getTrials } from "@/lib/content";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
+import { guardDisabledRoute } from "@/lib/route-guard";
 
 export const metadata = pageMetadata(
   "Research & Trials",
@@ -14,6 +15,7 @@ export const metadata = pageMetadata(
 );
 
 export default function ResearchPage() {
+  guardDisabledRoute("/research");
   const trials = getTrials();
 
   return (

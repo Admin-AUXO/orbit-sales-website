@@ -7,8 +7,11 @@ import { CTABand } from "@/components/sections/CTABand";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getCaseStudies, getCaseStudy } from "@/lib/content";
 import { articleJsonLd, breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
+import { guardDisabledRoute } from "@/lib/route-guard";
 
 type Props = { params: Promise<{ slug: string }> };
+
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   return getCaseStudies().map((s) => ({ slug: s.slug }));
@@ -22,6 +25,8 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function CaseStudyPage({ params }: Props) {
+  // /case-studies is a disabled route — these slugs export as 404, not content.
+  guardDisabledRoute("/case-studies");
   const { slug } = await params;
   const study = getCaseStudy(slug);
   if (!study) notFound();

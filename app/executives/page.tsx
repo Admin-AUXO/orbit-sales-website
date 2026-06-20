@@ -7,6 +7,7 @@ import { FadeIn } from "@/components/ui/FadeIn";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getCaseStudies } from "@/lib/content";
 import { articleJsonLd, breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
+import { guardDisabledRoute } from "@/lib/route-guard";
 
 export const metadata = pageMetadata(
   "For Executives",
@@ -30,6 +31,7 @@ const benefits = [
 ];
 
 export default function ExecutivesPage() {
+  guardDisabledRoute("/executives");
   const execStudies = getCaseStudies().filter((c) => c.persona === "executive");
 
   return (

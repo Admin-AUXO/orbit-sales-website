@@ -1,18 +1,19 @@
 import type { NextConfig } from "next";
 
-const securityHeaders = [
-  { key: "X-Content-Type-Options", value: "nosniff" },
-  { key: "X-Frame-Options", value: "SAMEORIGIN" },
-  { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-  { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
-];
+// Static export served from a GitHub Pages project subpath:
+// https://admin-auxo.github.io/orbit-sales-website
+// Override with NEXT_PUBLIC_BASE_PATH (e.g. "" for a custom domain at root).
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "/orbit-sales-website";
 
 const nextConfig: NextConfig = {
+  output: "export",
+  basePath,
+  trailingSlash: true,
   poweredByHeader: false,
 
   images: {
-    formats: ["image/avif", "image/webp"],
-    qualities: [75, 90],
+    // GitHub Pages has no image optimizer — serve images as-is.
+    unoptimized: true,
   },
 
   compiler: {
@@ -21,10 +22,6 @@ const nextConfig: NextConfig = {
 
   experimental: {
     optimizePackageImports: ["framer-motion"],
-  },
-
-  async headers() {
-    return [{ source: "/:path*", headers: securityHeaders }];
   },
 };
 

@@ -3,6 +3,8 @@ import { openRoles } from "@/lib/open-roles";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.neuro-stellar.com";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
     "",

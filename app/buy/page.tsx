@@ -7,6 +7,7 @@ import { DeviceSlideshow } from "@/components/ui/DeviceSlideshow";
 import { CTABand } from "@/components/sections/CTABand";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbJsonLd, pageMetadata, productJsonLd } from "@/lib/seo";
+import { guardDisabledRoute } from "@/lib/route-guard";
 
 export const metadata = pageMetadata(
   "Buy Neurostellar Orbit",
@@ -26,6 +27,7 @@ const features = [
 ];
 
 export default function BuyPage() {
+  guardDisabledRoute("/buy");
   return (
     <PageShell>
       <JsonLd

@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/Card";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
+import { guardDisabledRoute } from "@/lib/route-guard";
 
 export const metadata = pageMetadata(
   "Our Team",
@@ -52,6 +53,7 @@ const scientists = [
 ];
 
 export default function TeamPage() {
+  guardDisabledRoute("/team");
   return (
     <PageShell>
       <JsonLd
