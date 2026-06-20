@@ -1,6 +1,5 @@
 export type ScoreZone = "poor" | "average" | "high";
 
-/** Global population benchmarks — no personal baseline (v1). */
 export const GLOBAL_ZONE_THRESHOLDS = {
   poor: { min: 0, max: 25 },
   average: { min: 25, max: 75 },
@@ -8,9 +7,9 @@ export const GLOBAL_ZONE_THRESHOLDS = {
 } as const;
 
 export const ZONE_COLORS: Record<ScoreZone, string> = {
-  poor: "#ef4444",
-  average: "#f59e0b",
-  high: "#10b981",
+  poor: "#6e7686",
+  average: "#0ea5e9",
+  high: "#05c796",
 };
 
 export const ZONE_LABELS: Record<ScoreZone, string> = {
@@ -19,7 +18,6 @@ export const ZONE_LABELS: Record<ScoreZone, string> = {
   high: "High",
 };
 
-/** Arc segment boundaries on 0–100 scale (semicircle gauge). */
 export const GAUGE_ARC_SEGMENTS = [
   { zone: "poor" as const, start: 0, end: 25 },
   { zone: "average" as const, start: 25, end: 75 },

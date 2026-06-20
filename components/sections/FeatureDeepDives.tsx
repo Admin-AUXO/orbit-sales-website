@@ -6,7 +6,6 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import {
   Eyebrow,
   SectionDescription,
-  SectionTitle,
   sectionPadding,
 } from "@/components/ui/SectionTypography";
 import {
@@ -18,14 +17,16 @@ function MetricPanel({ metric }: { metric: CognitiveMetric }) {
   return (
     <div>
       <Eyebrow>{metric.eyebrow}</Eyebrow>
-      <SectionTitle className="mt-3 text-2xl md:text-3xl">{metric.title}</SectionTitle>
+      <h3 className="mt-3 text-2xl font-bold tracking-tight text-ns-text md:text-3xl">
+        {metric.title}
+      </h3>
       <SectionDescription className="mt-4">{metric.context}</SectionDescription>
       <p className="mt-4 text-sm leading-relaxed text-ns-text-muted md:text-base">
         {metric.measure}
       </p>
 
       <div className="mt-6 rounded-xl border border-ns-border bg-ns-bg-elevated/40 p-5 md:p-6">
-        <Eyebrow className="tracking-[0.15em] text-ns-text-muted">
+        <Eyebrow className="tracking-[0.2em] text-ns-text-muted">
           Questions it can help answer
         </Eyebrow>
         <ul className="mt-4 space-y-3">
@@ -71,7 +72,7 @@ export function FeatureDeepDives() {
             <div
               role="tablist"
               aria-label="Cognitive metrics"
-              className="grid grid-cols-3 gap-2 rounded-2xl border border-ns-border bg-ns-bg-card p-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] md:gap-2.5 md:p-2.5"
+              className="grid grid-cols-3 gap-2 rounded-2xl border border-ns-border bg-ns-bg-card p-2 shadow-[inset_0_1px_0_oklch(1_0_0_/_0.04)] md:gap-2.5 md:p-2.5"
             >
               {cognitiveMetrics.map((metric) => {
                 const isActive = metric.id === activeId;
@@ -85,10 +86,10 @@ export function FeatureDeepDives() {
                     aria-selected={isActive}
                     aria-controls={`metric-panel-${metric.id}`}
                     onClick={() => setActiveId(metric.id)}
-                    className={`cursor-pointer rounded-xl px-3 py-3 text-sm font-bold transition md:px-5 md:py-3.5 md:text-base ${
+                    className={`flex h-full cursor-pointer items-center justify-center whitespace-nowrap rounded-xl px-2 py-3 text-sm font-bold transition md:px-5 md:py-3.5 md:text-base ${
                       isActive
                         ? "bg-ns-accent text-ns-on-accent shadow-md shadow-black/30"
-                        : "bg-transparent text-ns-text-muted hover:bg-ns-accent-muted hover:text-ns-text"
+                        : "bg-transparent text-ns-silver hover:bg-ns-accent-muted hover:text-ns-text"
                     } focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ns-accent`}
                   >
                     {metric.tabLabel}

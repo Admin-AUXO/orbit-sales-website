@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 type SpecRow = {
@@ -16,7 +17,7 @@ const deviceSpecs: SpecRow[] = [
   { label: "Motion sensing", value: "Tri-axial accelerometer" },
   { label: "Battery", value: "8+ hours · USB-C fast charging" },
   { label: "Wireless", value: "Bluetooth Low Energy 5.4" },
-  { label: "Compatibility", value: "iOS, Android, Windows, MacOS" },
+  { label: "Compatibility", value: "iOS, Android, Windows, macOS" },
   { label: "Data & privacy", value: "Encrypted local-first storage" },
   { label: "Session length", value: "10–15 minutes (intentional use)" }
 ];
@@ -30,15 +31,19 @@ const inBox: SpecRow[] = [
 
 function SpecTable({ rows, caption }: { rows: SpecRow[]; caption: string }) {
   return (
-    <div>
-      <h3 className="text-lg font-semibold text-ns-text md:text-xl">{caption}</h3>
-      <dl className="mt-6 divide-y divide-ns-border border-y border-ns-border">
+    <div className="rounded-2xl border border-ns-border bg-ns-bg-elevated p-5 sm:p-6 md:p-8">
+      <h3 className="text-lg font-bold tracking-tight text-ns-text md:text-xl">
+        {caption}
+      </h3>
+      <dl className="mt-4 divide-y divide-ns-border/70">
         {rows.map((row) => (
           <div
             key={row.label}
-            className="grid gap-1 py-4 sm:grid-cols-[minmax(9rem,12rem)_1fr] sm:gap-8"
+            className="grid gap-0.5 py-3.5 sm:grid-cols-[minmax(8rem,11rem)_1fr] sm:gap-6 sm:py-4"
           >
-            <dt className="text-sm font-medium text-ns-text-muted">{row.label}</dt>
+            <dt className="text-xs font-semibold uppercase tracking-[0.08em] text-ns-silver sm:text-sm sm:font-medium sm:normal-case sm:tracking-normal sm:text-ns-text-muted">
+              {row.label}
+            </dt>
             <dd className="text-sm leading-relaxed text-ns-text">{row.value}</dd>
           </div>
         ))}
@@ -49,12 +54,7 @@ function SpecTable({ rows, caption }: { rows: SpecRow[]; caption: string }) {
 
 export function OrbitTechSpecs() {
   return (
-    <section
-      id="specs"
-      aria-labelledby="specs-heading"
-      className="py-16 md:py-24"
-    >
-      <div className="mx-auto max-w-[var(--ns-max-width)] px-6 lg:px-8">
+    <Section id="specs" ariaLabelledby="specs-heading">
         <SectionHeading
           id="specs-heading"
           eyebrow="Technical specifications"
@@ -63,7 +63,7 @@ export function OrbitTechSpecs() {
         />
 
         <FadeIn>
-          <div className="mx-auto max-w-3xl space-y-16">
+          <div className="mx-auto max-w-3xl space-y-6 md:space-y-8">
             <SpecTable rows={deviceSpecs} caption="Orbit" />
             <SpecTable rows={inBox} caption="In the box" />
           </div>
@@ -82,7 +82,6 @@ export function OrbitTechSpecs() {
             </p>
           </div>
         </FadeIn>
-      </div>
-    </section>
+    </Section>
   );
 }

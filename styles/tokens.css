@@ -1,23 +1,32 @@
 :root {
-  /* Neurostellar — black & white base with premium silver luminance */
-  --ns-bg: #000000;
-  --ns-bg-elevated: #08080c;
-  --ns-bg-card: #0f0f14;
-  --ns-border: #1f1f28;
-  --ns-text: #ffffff;
-  --ns-text-muted: #9ca3af;
-  --ns-accent: #ffffff;
-  --ns-accent-hover: #e8e8ec;
-  --ns-accent-muted: rgba(255, 255, 255, 0.07);
-  --ns-on-accent: #000000;
+  --ns-bg: oklch(0 0 0);
+  --ns-bg-elevated: oklch(0.1365 0.009 285.14);
+  --ns-bg-card: oklch(0.1708 0.0103 285.25);
+  --ns-border: oklch(0.2433 0.017 285.06);
+  --ns-text: oklch(1 0 0);
+  --ns-text-muted: oklch(0.7137 0.0192 261.32);
+  --ns-accent: oklch(1 0 0);
+  --ns-accent-hover: oklch(0.9321 0.0054 286.3);
+  --ns-accent-muted: oklch(1 0 0 / 0.07);
+  --ns-on-accent: oklch(0 0 0);
 
-  /* Premium tech luminance — subtle, not neon */
-  --ns-glow: rgba(200, 210, 235, 0.14);
-  --ns-glow-strong: rgba(220, 225, 245, 0.22);
-  --ns-silver: #b8bcc8;
-  --ns-aurora-1: rgba(140, 155, 190, 0.18);
-  --ns-aurora-2: rgba(255, 255, 255, 0.06);
-  --ns-aurora-3: rgba(90, 100, 130, 0.12);
+  --ns-glow: oklch(0.8639 0.0363 268.26 / 0.14);
+  --ns-glow-strong: oklch(0.912 0.0278 274.64 / 0.22);
+  --ns-silver: oklch(0.7957 0.0175 271.19);
+  --ns-teal: oklch(0.7367 0.15 167.2);
+  --ns-sky: oklch(0.6847 0.1479 237.32);
+  --ns-gradient-brand: linear-gradient(
+    90deg,
+    var(--ns-teal),
+    var(--ns-sky)
+  );
+  --ns-chart-1: var(--ns-teal);
+  --ns-chart-2: var(--ns-sky);
+  --ns-chart-grid: oklch(1 0 0 / 0.08);
+
+  --ns-aurora-1: oklch(0.69 0.0545 266.79 / 0.18);
+  --ns-aurora-2: oklch(1 0 0 / 0.06);
+  --ns-aurora-3: oklch(0.5065 0.0495 270.25 / 0.12);
 
   --ns-max-width: 1200px;
 
@@ -31,20 +40,25 @@
       var(--ns-aurora-3),
       transparent 50%
     ),
-    linear-gradient(180deg, #000000 0%, #06060a 50%, #000000 100%);
+    linear-gradient(
+      180deg,
+      oklch(0 0 0) 0%,
+      oklch(0.1246 0.0103 284.8) 50%,
+      oklch(0 0 0) 100%
+    );
 
   --ns-gradient-card: linear-gradient(
     145deg,
-    rgba(255, 255, 255, 0.04) 0%,
+    oklch(1 0 0 / 0.04) 0%,
     transparent 40%,
-    rgba(140, 155, 190, 0.05) 100%
+    oklch(0.69 0.0545 266.79 / 0.05) 100%
   );
 
   --ns-gradient-border: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.18),
-    rgba(255, 255, 255, 0.04) 50%,
-    rgba(180, 190, 220, 0.12)
+    oklch(1 0 0 / 0.18),
+    oklch(1 0 0 / 0.04) 50%,
+    oklch(0.8035 0.0439 270.82 / 0.12)
   );
 }
 
@@ -60,6 +74,8 @@
   --color-ns-accent-muted: var(--ns-accent-muted);
   --color-ns-on-accent: var(--ns-on-accent);
   --color-ns-silver: var(--ns-silver);
+  --color-ns-teal: var(--ns-teal);
+  --color-ns-sky: var(--ns-sky);
   --color-ns-glow: var(--ns-glow);
   --font-display: var(--font-manrope);
   --font-body: var(--font-manrope);
@@ -93,9 +109,9 @@
 
 .mesh-overlay {
   background-image: linear-gradient(
-      rgba(255, 255, 255, 0.02) 1px,
+      oklch(1 0 0 / 0.02) 1px,
       transparent 1px
     ),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    linear-gradient(90deg, oklch(1 0 0 / 0.02) 1px, transparent 1px);
   background-size: 72px 72px;
 }

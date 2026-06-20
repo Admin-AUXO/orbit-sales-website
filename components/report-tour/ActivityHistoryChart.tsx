@@ -4,9 +4,9 @@ import { useState } from "react";
 import type { DayEvent } from "@/lib/report-tour-data";
 
 const METRICS = [
-  { key: "speed" as const, label: "Speed", color: "rgba(0,190,225,0.92)" },
-  { key: "agility" as const, label: "Agility", color: "rgb(188,198,235)" },
-  { key: "endurance" as const, label: "Endurance", color: "rgba(200,180,255,0.92)" },
+  { key: "speed" as const, label: "Speed", color: "var(--ns-chart-1)" },
+  { key: "agility" as const, label: "Agility", color: "var(--ns-chart-2)" },
+  { key: "endurance" as const, label: "Endurance", color: "var(--ns-silver)" },
 ];
 
 function activityAverage(event: DayEvent) {
@@ -35,11 +35,11 @@ function TrophyMark({ cx, y }: { cx: number; y: number }) {
     <g transform={`translate(${cx - 8}, ${y})`} aria-hidden>
       <path
         d="M4 3h8v2.5c0 2.6-1.7 4.1-4 4.9-2.3-.8-4-2.3-4-4.9V3z"
-        fill="#f59e0b"
+        fill="var(--ns-teal)"
       />
-      <path d="M2.5 3H3.5V5H2.5V3zm10 0h1v2h-1V3z" fill="#fbbf24" />
-      <rect x="6" y="10" width="4" height="1.6" rx="0.4" fill="#f59e0b" />
-      <rect x="5" y="11.6" width="6" height="1.2" rx="0.4" fill="#d97706" />
+      <path d="M2.5 3H3.5V5H2.5V3zm10 0h1v2h-1V3z" fill="var(--ns-sky)" />
+      <rect x="6" y="10" width="4" height="1.6" rx="0.4" fill="var(--ns-teal)" />
+      <rect x="5" y="11.6" width="6" height="1.2" rx="0.4" fill="var(--ns-teal)" />
     </g>
   );
 }
@@ -50,7 +50,7 @@ interface ActivityHistoryChartProps {
 
 export function ActivityHistoryChart({ events }: ActivityHistoryChartProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const { topIndex, topScore } = findTopActivityIndex(events);
+  const { topIndex } = findTopActivityIndex(events);
   const topActivity = events[topIndex];
 
   const width = 560;
@@ -79,12 +79,12 @@ export function ActivityHistoryChart({ events }: ActivityHistoryChartProps) {
   }
 
   return (
-    <div className="rounded-xl border border-[#333333] bg-[#121212] p-4 sm:p-6">
+    <div className="rounded-xl border border-ns-border bg-ns-bg-elevated p-4 sm:p-6">
       <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-        <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#c9d1d9]">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-ns-text-muted">
           Your day · morning to evening
         </p>
-        <div className="flex flex-wrap gap-3 text-[10px] text-[#c9d1d9]">
+        <div className="flex flex-wrap gap-3 text-[10px] text-ns-text-muted">
           {METRICS.map((m) => (
             <span key={m.key} className="flex items-center gap-1.5">
               <span
@@ -110,14 +110,14 @@ export function ActivityHistoryChart({ events }: ActivityHistoryChartProps) {
               y1={yForScore(tick)}
               x2={padding.left + chartW}
               y2={yForScore(tick)}
-              stroke="rgba(255,255,255,0.08)"
+              stroke="var(--ns-chart-grid)"
               strokeWidth={1}
             />
             <text
               x={padding.left - 8}
               y={yForScore(tick) + 3}
               textAnchor="end"
-              className="fill-[#b0b3b8] text-[9px]"
+              className="fill-ns-text-muted text-[9px]"
             >
               {tick}
             </text>
@@ -129,7 +129,7 @@ export function ActivityHistoryChart({ events }: ActivityHistoryChartProps) {
           y={padding.top + chartH / 2}
           textAnchor="middle"
           transform={`rotate(-90 14 ${padding.top + chartH / 2})`}
-          className="fill-[#b0b3b8] text-[9px]"
+          className="fill-ns-text-muted text-[9px]"
         >
           Score (0–100)
         </text>
@@ -141,7 +141,7 @@ export function ActivityHistoryChart({ events }: ActivityHistoryChartProps) {
             y1={padding.top}
             x2={padding.left + groupWidth * i}
             y2={padding.top + chartH}
-            stroke="rgba(255,255,255,0.04)"
+            stroke="var(--ns-chart-grid)"
             strokeWidth={1}
           />
         ))}
@@ -169,8 +169,8 @@ export function ActivityHistoryChart({ events }: ActivityHistoryChartProps) {
                     width={clusterWidth + 12}
                     height={chartH + 4}
                     rx={6}
-                    fill="rgba(245,158,11,0.06)"
-                    stroke="rgba(245,158,11,0.35)"
+                    fill="oklch(0.7367 0.15 167.2 / 0.06)"
+                    stroke="oklch(0.7367 0.15 167.2 / 0.35)"
                     strokeWidth={1}
                   />
                   <TrophyMark cx={cx} y={4} />
@@ -208,7 +208,7 @@ export function ActivityHistoryChart({ events }: ActivityHistoryChartProps) {
                 x={cx}
                 y={baseline + 34}
                 textAnchor="middle"
-                className="fill-[#c9d1d9] text-[7px] sm:text-[8px]"
+                className="fill-ns-text-muted text-[7px] sm:text-[8px]"
               >
                 {event.activity.length > 16
                   ? `${event.activity.slice(0, 14)}…`
@@ -223,8 +223,8 @@ export function ActivityHistoryChart({ events }: ActivityHistoryChartProps) {
                     width={156}
                     height={78}
                     rx={6}
-                    fill="#232323"
-                    stroke="#333333"
+                    fill="var(--ns-bg-card)"
+                    stroke="var(--ns-border)"
                   />
                   <text
                     x={cx}
@@ -238,7 +238,7 @@ export function ActivityHistoryChart({ events }: ActivityHistoryChartProps) {
                     x={cx}
                     y={padding.top + 34}
                     textAnchor="middle"
-                    className="fill-[#c9d1d9] text-[8px]"
+                    className="fill-ns-text-muted text-[8px]"
                   >
                     Speed: {event.speed.toFixed(1)}
                   </text>
@@ -246,7 +246,7 @@ export function ActivityHistoryChart({ events }: ActivityHistoryChartProps) {
                     x={cx}
                     y={padding.top + 48}
                     textAnchor="middle"
-                    className="fill-[#c9d1d9] text-[8px]"
+                    className="fill-ns-text-muted text-[8px]"
                   >
                     Agility: {event.agility.toFixed(1)}
                   </text>
@@ -254,7 +254,7 @@ export function ActivityHistoryChart({ events }: ActivityHistoryChartProps) {
                     x={cx}
                     y={padding.top + 62}
                     textAnchor="middle"
-                    className="fill-[#c9d1d9] text-[8px]"
+                    className="fill-ns-text-muted text-[8px]"
                   >
                     Endurance: {event.endurance.toFixed(1)}
                   </text>
@@ -265,7 +265,7 @@ export function ActivityHistoryChart({ events }: ActivityHistoryChartProps) {
         })}
       </svg>
 
-      <div className="mt-1.5 flex items-center justify-center gap-2 rounded-lg border border-[#333333] bg-[#232323] px-4 py-2.5">
+      <div className="mt-1.5 flex items-center justify-center gap-2 rounded-lg border border-ns-border bg-ns-bg-card px-4 py-2.5">
         <svg
           width="16"
           height="14"
@@ -275,16 +275,16 @@ export function ActivityHistoryChart({ events }: ActivityHistoryChartProps) {
         >
           <path
             d="M4 3h8v2.5c0 2.6-1.7 4.1-4 4.9-2.3-.8-4-2.3-4-4.9V3z"
-            fill="#f59e0b"
+            fill="var(--ns-teal)"
           />
-          <path d="M2.5 3H3.5V5H2.5V3zm10 0h1v2h-1V3z" fill="#fbbf24" />
-          <rect x="6" y="10" width="4" height="1.6" rx="0.4" fill="#f59e0b" />
-          <rect x="5" y="11.6" width="6" height="1.2" rx="0.4" fill="#d97706" />
+          <path d="M2.5 3H3.5V5H2.5V3zm10 0h1v2h-1V3z" fill="var(--ns-sky)" />
+          <rect x="6" y="10" width="4" height="1.6" rx="0.4" fill="var(--ns-teal)" />
+          <rect x="5" y="11.6" width="6" height="1.2" rx="0.4" fill="var(--ns-teal)" />
         </svg>
-        <p className="text-center text-[11px] leading-snug text-[#c9d1d9] sm:text-xs">
-          <span className="font-semibold text-[#fbbf24]">Strongest activity</span>
-          <span className="text-white"> · {topActivity.activity}</span>
-          <span className="text-[#b0b3b8]">
+        <p className="text-center text-[11px] leading-snug text-ns-text-muted sm:text-xs">
+          <span className="font-semibold text-ns-teal">Strongest activity</span>
+          <span className="text-ns-text"> · {topActivity.activity}</span>
+          <span className="text-ns-text-muted">
             {" "}
             ({topActivity.time})
           </span>

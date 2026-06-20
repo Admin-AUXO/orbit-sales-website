@@ -1,32 +1,45 @@
-# Brand Assets (served from `public/brand/`)
+# Brand Assets
 
-Source files live in `brand-assets/` at the project root. Run copy after updating source assets:
+Served from `public/brand/`. To refresh, replace files in place and keep the names below.
 
-```powershell
-$src = "brand-assets"
-$pub = "public/brand"
-Copy-Item "$src\Logo\Logo\*" "$pub\logos\" -Force
-Copy-Item "$src\manrope-font\*.ttf" "$pub\fonts\" -Force
-```
+## Logos (`logos/`)
 
-## Current inventory
+- `neurostellar-logo-horizontal-light.svg` — primary, for dark backgrounds
+- `neurostellar-logo-horizontal-dark.svg` — for light backgrounds
+- `neurostellar-logo-stacked-light.svg` / `neurostellar-logo-stacked-dark.svg` — stacked, large-format use
+- PNG versions of each
+- `iit-madras-logo.svg` — partner logo
 
-### Logos (`logos/`)
-- `neurostellar-logo-horizontal-light.svg` — primary (dark backgrounds)
-- `neurostellar-logo-horizontal-dark.svg` — light backgrounds
-- Stacked variants for large-format use
+## Fonts (`fonts/`)
 
-### Fonts (`fonts/`)
-- Manrope (ExtraLight → ExtraBold) — wired in `lib/fonts.ts`
+Manrope, ExtraLight through ExtraBold (`.ttf`). Wired in `lib/fonts.ts`.
 
-### Device renders (`device/`)
-- `Headmodel_Orbit.png` — hero
-- `Isometric_Orbit.png` — product moment
-- `Front_Orbit.png` — product page
-- `Chessboard_Orbit.png` / `Concrete_Orbit.png` — persona cards
-- Additional angles: `TopFront_Angle_Orbit.png`, `Side_Upper_Orbit.png`, `Zen_Orbit.png`
+## Device Renders (`device/`)
 
-### Brand guidelines
-- `brand-assets/Neurostellar - Brand Guidelines - MQ.pdf`
-- Primary palette: Black `#000000`, White `#FFFFFF`
+`.webp` files. Key shots:
+
+- `Headmodel_Orbit.webp` — hero
+- `Isometric_Orbit.webp` — product moment
+- `Front_Orbit.webp` — product page
+- `Chessboard_Orbit.webp` / `Concrete_Orbit.webp` — persona cards
+- Other angles: `TopFront_Angle_Orbit.webp`, `Side_Upper_Orbit.webp`, `Zen_Orbit.webp`, `Top_View_Orbit.webp`, `Desk_Orbit.webp`, `Down_Orbit.webp`, `Exploded_Orbit.webp`, `side_view_Orbit.webp`
+
+## Hero Images (`hero/`)
+
+Persona lifestyle shots (`.png`): `archer`, `board-meeting`, `chess-player`, `coder`, `leisure`, `meditation`, `musician`, `painting`, `racer`.
+
+## Report Images (`report/`)
+
+- `cognitive-state-timeline.png`
+- `executive-session-report-page1.png`
+- `executive-session-report-page2.png`
+
+## Video (`video/`)
+
+- `orbit-explode-loop.mp4`
+- `orbit-promo.mp4`
+
+## Brand Basics
+
+- Palette: Black `#000000`, White `#FFFFFF`
 - Typography: Manrope for all marketing materials

@@ -1,6 +1,6 @@
 # Neurostellar Sales Website
 
-Premium marketing site for Neurostellar Orbit — built with Next.js, Tailwind CSS, and Framer Motion.
+Marketing site for Neurostellar Orbit. Built with Next.js, Tailwind CSS, and Framer Motion.
 
 ## Development
 
@@ -11,46 +11,42 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Brand Assets
+## Demos & Analytics
 
-Source files live in `brand-assets/` at the project root:
-
-- `Logo/Logo/` — horizontal and stacked SVG/PNG logos
-- `manrope-font/` — Manrope TTF files (all weights)
-- `product-renders/` — 3D Orbit renders
-- `Neurostellar - Brand Guidelines - MQ.pdf` — black/white palette, Manrope typography
-
-Copied to `public/brand/` for the site. See `public/brand/README.md` for refresh instructions.
+- **Demos:** Calendly only, demo-first. Every "Book a Demo" CTA opens a branded Calendly **modal** (`components/forms/CalendlyModal.tsx`). No custom forms.
+- **Analytics:** GA4 on a fresh property via `@next/third-parties`, with a **Consent Mode v2** cookie banner. Set `NEXT_PUBLIC_GA_ID` to enable.
 
 ## Content
 
-Edit JSON files in `content/` — see `content/WRITING_GUIDE.md`.
+Content lives as JSON in `content/`. See `content/WRITING_GUIDE.md`.
+
+## Brand Assets
+
+Served from `public/brand/` (logos, fonts, device renders, hero images, report images, video). See `public/brand/README.md`.
 
 ## Environment Variables
 
-Copy `.env.example` to `.env.local`:
+Set these in `.env.local`:
 
 - `NEXT_PUBLIC_SITE_URL` — production URL for SEO/sitemap
-- `NEXT_PUBLIC_CALENDLY_URL` — Calendly embed URL for `/demo`
+- `NEXT_PUBLIC_GA_ID` — GA4 Measurement ID (analytics loads only when set)
+- `NEXT_PUBLIC_CALENDLY_URL` — Calendly scheduler URL (overrides the default)
 
-## Deploy to Vercel
+## Deploy
 
-1. Push to GitHub
-2. Import project in [Vercel](https://vercel.com)
-3. Set environment variables
-4. Deploy
+Hosted on Vercel.
 
-## DNS Cutover (from Wix)
+1. Push to GitHub.
+2. Import the project in [Vercel](https://vercel.com).
+3. Set environment variables.
+4. Deploy.
 
-1. Verify preview deployment
-2. Point `www.neuro-stellar.com` CNAME to `cname.vercel-dns.com`
-3. Add domain in Vercel project settings
-4. Enable SSL
+Domain port from Wix (`neuro-stellar.com`) is planned.
 
 ## Project Structure
 
-- `app/` — Pages and API routes
+- `app/` — pages and API routes
 - `components/` — UI, layout, sections
-- `content/` — Case studies, trials, FAQ (JSON)
-- `lib/` — Content loaders, SEO, fonts, analytics
-- `public/brand/` — Brand assets
+- `content/` — case studies, trials, FAQ (JSON)
+- `lib/` — content loaders, SEO, fonts, analytics
+- `public/brand/` — brand assets

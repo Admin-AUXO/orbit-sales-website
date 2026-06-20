@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import type { TourChapter } from "@/lib/report-tour-data";
 import { useIsClient } from "@/lib/use-is-client";
 
@@ -22,7 +22,7 @@ function StaticNarrative({
 }) {
   return (
     <div className="relative">
-      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c9d1d9]">
+      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ns-text-muted">
         {chapter.eyebrow}
       </p>
       <h2 className="mt-3 text-xl font-bold tracking-tight text-white sm:mt-4 sm:text-2xl lg:text-[1.65rem] lg:leading-snug">
@@ -80,11 +80,9 @@ export function NarrativePanel({
   const reduceMotion = useReducedMotion() ?? false;
   const [hasPlayed, setHasPlayed] = useState(false);
 
-  useEffect(() => {
-    if (isActive && !hasPlayed) {
-      setHasPlayed(true);
-    }
-  }, [isActive, hasPlayed]);
+  if (isActive && !hasPlayed) {
+    setHasPlayed(true);
+  }
 
   if (!isClient) {
     return <StaticNarrative chapter={chapter} showScrollCue={showScrollCue} />;

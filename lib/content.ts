@@ -36,6 +36,7 @@ export type Trial = {
 export type FaqItem = {
   question: string;
   answer: string;
+  category?: string;
 };
 
 function readJson<T>(filePath: string): T {

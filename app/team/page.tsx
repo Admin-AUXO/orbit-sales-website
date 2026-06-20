@@ -41,7 +41,7 @@ const scientists = [
     name: "Dr. Lena Vogel",
     role: "Research Neuroscientist",
     credentials: "PhD Clinical Neuropsychology, Heidelberg",
-    bio: "Lena's research examines the relationship between sleep quality, neural recovery, and next-day cognitive performance. She curates recovery intervention programmes for Orbit members.",
+    bio: "Lena's research examines the relationship between sleep quality, neural recovery, and next-day cognitive performance. She curates recovery intervention programs for Orbit members.",
   },
   {
     name: "Dr. Arjun Mehta",
@@ -69,7 +69,6 @@ export default function TeamPage() {
         description="Your performance coach is your primary guide through the Neurostellar program. Behind every recommendation, our neuroscience team ensures each intervention is grounded in research and tailored to your data."
       />
 
-      {/* Performance Coaches */}
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-[var(--ns-max-width)] px-6 lg:px-8">
           <div className="mb-10">
@@ -81,12 +80,12 @@ export default function TeamPage() {
             </h2>
             <p className="mt-3 max-w-xl leading-relaxed text-ns-text-muted">
               Your coach is your point of contact — they review your session data, understand
-              your goals, and build a personalised plan you can follow.
+              your goals, and build a personalized plan you can follow.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {coaches.map((c, i) => (
-              <FadeIn key={c.name} delay={i * 0.1}>
+              <FadeIn key={c.name} className="h-full" delay={i * 0.1}>
                 <Card className="h-full">
                   <div className="mb-4 h-14 w-14 rounded-full bg-ns-bg-elevated border border-ns-border" />
                   <h3 className="font-display text-base text-ns-text">{c.name}</h3>
@@ -101,7 +100,6 @@ export default function TeamPage() {
         </div>
       </section>
 
-      {/* Neuroscience Team */}
       <section className="bg-ns-bg-elevated py-16 md:py-24">
         <div className="mx-auto max-w-[var(--ns-max-width)] px-6 lg:px-8">
           <div className="mb-10">
@@ -118,7 +116,7 @@ export default function TeamPage() {
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {scientists.map((s, i) => (
-              <FadeIn key={s.name} delay={i * 0.1}>
+              <FadeIn key={s.name} className="h-full" delay={i * 0.1}>
                 <Card className="h-full">
                   <div className="mb-4 h-14 w-14 rounded-full bg-ns-bg border border-ns-border" />
                   <h3 className="font-display text-base text-ns-text">{s.name}</h3>

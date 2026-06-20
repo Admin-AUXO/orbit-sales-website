@@ -1,7 +1,7 @@
 import { PageShell } from "@/components/layout/PageShell";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { CTABand } from "@/components/sections/CTABand";
-import { ExecutiveReportTour } from "@/components/report-tour/ExecutiveReportTour";
+import { ExecutiveReportTourLoader } from "./ExecutiveReportTourLoader";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
@@ -17,7 +17,6 @@ export default function ExecutiveReportPage() {
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
-          { name: "For Executives", path: "/executives" },
           { name: "Report Tour", path: "/report" },
         ])}
       />
@@ -28,7 +27,7 @@ export default function ExecutiveReportPage() {
         description="Scroll through a real session report, see how trends build over a week, and follow the conversation with your performance coach."
       />
 
-      <ExecutiveReportTour />
+      <ExecutiveReportTourLoader />
 
       <CTABand />
     </PageShell>

@@ -2,14 +2,16 @@ import { PageShell } from "@/components/layout/PageShell";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Card } from "@/components/ui/Card";
 import { FadeIn } from "@/components/ui/FadeIn";
-import { Button } from "@/components/ui/Button";
+import { Section } from "@/components/ui/Section";
+import { SectionTitle } from "@/components/ui/SectionTypography";
 import { CTABand } from "@/components/sections/CTABand";
+import { contactCta } from "@/lib/cta-content";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata(
   "Contact Us",
-  "Reach the right Neurostellar team — whether you want to buy Orbit, explore a partnership, invest, collaborate on research, or ask a general question.",
+  "Reach the right Neurostellar team — whether you want to get started with Orbit, explore a partnership, invest, collaborate on research, or ask a general question.",
   "/contact",
 );
 
@@ -27,7 +29,6 @@ type ContactChannel = {
   email: string;
   phone?: string;
   phoneHref?: string;
-  cta?: { label: string; href: string };
 };
 
 const channels: ContactChannel[] = [
@@ -46,17 +47,16 @@ const channels: ContactChannel[] = [
     email: SUPPORT_EMAIL,
     phone: SUPPORT_PHONE,
     phoneHref: SUPPORT_PHONE_HREF,
-    // cta: { label: "Buy Orbit", href: "/buy" },
   },
   {
     id: "b2b",
     eyebrow: "Partnerships & integrations",
-    title: "Coaches, organisations & tech teams",
+    title: "Coaches, organizations & tech teams",
     audience:
       "B2B2C partners improving teams and workforces — plus companies exploring integrations with Orbit.",
     prompts: [
       "You coach athletes or run a performance program",
-      "You want Orbit for your organisation or workforce",
+      "You want Orbit for your organization or workforce",
       "You are exploring a business or distribution partnership",
       "You want to integrate Orbit with your platform or product",
     ],
@@ -64,7 +64,6 @@ const channels: ContactChannel[] = [
     email: "business@neuro-stellar.com",
     phone: SUPPORT_PHONE,
     phoneHref: SUPPORT_PHONE_HREF,
-    // cta: { label: "Book a demo", href: "/demo" },
   },
   {
     id: "investors",
@@ -93,7 +92,6 @@ const channels: ContactChannel[] = [
     ],
     team: "Research & science",
     email: "research@neuro-stellar.com",
-    // cta: { label: "View research", href: "/research" },
   },
   {
     id: "general",
@@ -110,18 +108,7 @@ const channels: ContactChannel[] = [
     email: SUPPORT_EMAIL,
     phone: SUPPORT_PHONE,
     phoneHref: SUPPORT_PHONE_HREF,
-    // cta: { label: "View careers", href: "/careers" },
   },
-];
-
-const routingGuide = [
-  { question: "Want to buy Orbit for yourself?", channel: "Individual purchases" },
-  { question: "Coach athletes or run a performance program?", channel: "Partnerships & integrations" },
-  { question: "Bring Orbit to your organisation or workforce?", channel: "Partnerships & integrations" },
-  { question: "Integrate Orbit with your product or platform?", channel: "Partnerships & integrations" },
-  { question: "Explore an investment with our founders?", channel: "Investment" },
-  { question: "Collaborate on academic or clinical research?", channel: "Academic collaboration" },
-  { question: "Something else — careers, press, or general questions?", channel: "General inquiries" },
 ];
 
 function MailIcon() {
@@ -159,39 +146,31 @@ function PhoneIcon() {
 
 function ContactCard({ channel }: { channel: ContactChannel }) {
   return (
-    <Card className="flex h-full flex-col" premium={channel.id === "d2c" || channel.id === "b2b"}>
+    <Card className="hover-lift flex h-full flex-col" premium={channel.id === "d2c" || channel.id === "b2b"}>
       <span className="text-xs font-semibold uppercase tracking-[0.2em] text-ns-accent">
         {channel.eyebrow}
       </span>
       <h3 className="mt-3 font-display text-xl text-ns-text">{channel.title}</h3>
-      <p className="mt-3 text-sm leading-relaxed text-ns-text-muted">{channel.audience}</p>
-
-      <div className="mt-5 flex-1">
-        <p className="text-xs font-semibold uppercase tracking-[0.15em] text-ns-text">
-          You might reach out if…
-        </p>
-        <ul className="mt-3 space-y-2 text-sm leading-relaxed text-ns-text-muted">
-          {channel.prompts.map((prompt) => (
-            <li key={prompt} className="flex gap-2">
-              <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-ns-accent" aria-hidden />
-              <span>{prompt}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <p className="mt-3 flex-1 text-sm leading-relaxed text-ns-text-muted">{channel.audience}</p>
 
       <div className="mt-6 border-t border-ns-border pt-6">
-        <p className="text-xs font-semibold uppercase tracking-[0.15em] text-ns-text-muted">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ns-text-muted">
           Contact {channel.team}
         </p>
         <div className="mt-3 space-y-2">
-          <a
-            href={`mailto:${channel.email}`}
-            className="flex items-center gap-2 text-sm text-ns-text transition-colors hover:text-ns-accent"
-          >
-            <MailIcon />
-            {channel.email}
-          </a>
+          {channel.email.split(",").map((email) => {
+            const address = email.trim();
+            return (
+              <a
+                key={address}
+                href={`mailto:${address}`}
+                className="flex items-center gap-2 text-sm text-ns-text transition-colors hover:text-ns-accent"
+              >
+                <MailIcon />
+                {address}
+              </a>
+            );
+          })}
           {channel.phone && channel.phoneHref && (
             <a
               href={channel.phoneHref}
@@ -202,15 +181,6 @@ function ContactCard({ channel }: { channel: ContactChannel }) {
             </a>
           )}
         </div>
-        {/* Card CTAs — uncomment channel.cta above and this block to restore action buttons
-        {channel.cta && (
-          <div className="mt-5">
-            <Button href={channel.cta.href} variant="secondary">
-              {channel.cta.label}
-            </Button>
-          </div>
-        )}
-        */}
       </div>
     </Card>
   );
@@ -231,70 +201,29 @@ export default function ContactPage() {
       <PageHeader
         eyebrow="Get in touch"
         title="Contact the right team"
-        description="No forms to fill out — just reach the people who can help. Whether you want to purchase Orbit, explore a partnership, invest, or collaborate on research, start with the channel that matches your goal."
+        description="No forms to fill out — just reach the people who can help. Whether you want to get started with Orbit, explore a partnership, invest, or collaborate on research, start with the channel that matches your goal."
       />
 
-      {/* Routing guide */}
-      <section className="py-16 md:py-20">
-        <div className="mx-auto max-w-[var(--ns-max-width)] px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ns-accent">
-              Not sure where to start?
-            </p>
-            <h2 className="mt-3 font-display text-2xl text-ns-text md:text-3xl">
-              Find your contact channel
-            </h2>
-            <p className="mt-4 leading-relaxed text-ns-text-muted">
-              Answer the question that best describes you — then use the matching card below for
-              email and phone details.
-            </p>
-          </div>
-
-          <div className="mx-auto mt-10 max-w-3xl">
-            <Card className="divide-y divide-ns-border p-0">
-              {routingGuide.map((item, i) => (
-                <FadeIn key={item.question} delay={i * 0.05}>
-                  <div className="flex flex-col gap-1 px-6 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6 md:px-8">
-                    <p className="text-sm text-ns-text">{item.question}</p>
-                    <p className="shrink-0 text-xs font-semibold uppercase tracking-[0.15em] text-ns-accent">
-                      {item.channel}
-                    </p>
-                  </div>
-                </FadeIn>
-              ))}
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact channels */}
-      <section className="bg-ns-bg-elevated py-16 md:py-24">
-        <div className="mx-auto max-w-[var(--ns-max-width)] px-6 lg:px-8">
+      <Section>
           <div className="mb-10 max-w-2xl">
-            <h2 className="font-display text-2xl text-ns-text">Who to contact</h2>
+            <SectionTitle>Who to contact</SectionTitle>
             <p className="mt-3 leading-relaxed text-ns-text-muted">
-              Each card covers a distinct audience. Email is the fastest way to reach us; phone
-              support is available for purchase and general inquiries.
+              Pick the channel that matches your goal — email reaches the right team
+              fastest. The phone number is one shared support line you can call for any
+              of them.
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2">
-            {channels.slice(0, 4).map((channel, i) => (
-              <FadeIn key={channel.id} delay={i * 0.08}>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {channels.map((channel, i) => (
+              <FadeIn key={channel.id} className="h-full" delay={i * 0.06}>
                 <ContactCard channel={channel} />
               </FadeIn>
             ))}
           </div>
+      </Section>
 
-          <div className="mt-6 max-w-xl">
-            <FadeIn delay={0.32}>
-              <ContactCard channel={channels[4]} />
-            </FadeIn>
-          </div>
-        </div>
-      </section>
-
-      <CTABand />
+      <CTABand {...contactCta} />
     </PageShell>
   );
 }

@@ -1,4 +1,5 @@
 import { Card } from "@/components/ui/Card";
+import { CountUp } from "@/components/ui/CountUp";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Eyebrow, sectionPadding } from "@/components/ui/SectionTypography";
@@ -16,15 +17,15 @@ const personaLabel = {
 
 function MetricPill({ metric }: { metric: CohortMetric }) {
   return (
-    <div className="rounded-xl border border-ns-border/60 bg-ns-bg-elevated/40 px-3 py-2.5 text-center">
-      <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-ns-silver">
+    <div className="rounded-xl border border-ns-border/60 bg-ns-bg-elevated/40 px-2 py-2.5 text-center">
+      <p className="text-[0.65rem] font-semibold uppercase tracking-normal text-ns-silver">
         {metric.name}
       </p>
       <p className="mt-1.5 text-base font-bold tabular-nums tracking-tight text-ns-text sm:text-lg">
-        {metric.improved} of {metric.total}
+        <CountUp value={metric.improved} /> of {metric.total}
       </p>
-      <p className="mt-0.5 text-[10px] font-medium leading-tight text-ns-text-muted">
-        users improved
+      <p className="mt-0.5 text-xs font-medium leading-tight text-ns-text-muted">
+        improved
       </p>
     </div>
   );
@@ -42,7 +43,7 @@ export function CaseStudyHighlights() {
           id="case-studies-heading"
           eyebrow="Proof that our approach works"
           title="Real performers. Measurable results."
-          description="Early cohort data from structured programmes — chess academy and executive deep-work pilots."
+          description="Early cohort data from structured programs — chess academy and executive deep-work pilots."
         />
 
         <FadeIn>
@@ -56,15 +57,15 @@ export function CaseStudyHighlights() {
           </div>
         </FadeIn>
 
-        <div className="mt-6 grid gap-6 md:grid-cols-2">
+        <div className="mt-6 grid gap-6 sm:grid-cols-2">
           {cohortProofs.map((proof, i) => (
-            <FadeIn key={proof.cohort} delay={0.08 + i * 0.08}>
-              <Card className="h-full">
-                <Eyebrow className="tracking-[0.15em]">{personaLabel[proof.persona]}</Eyebrow>
+            <FadeIn key={proof.cohort} className="h-full" delay={0.08 + i * 0.08}>
+              <Card className="flex h-full flex-col">
+                <Eyebrow className="tracking-[0.2em]">{personaLabel[proof.persona]}</Eyebrow>
                 <h3 className="mt-2 text-xl font-bold text-ns-text">{proof.cohort}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-ns-text-muted">{proof.context}</p>
 
-                <div className="mt-6 grid grid-cols-3 gap-3">
+                <div className="mt-auto grid grid-cols-3 gap-3 pt-6">
                   {proof.metrics.map((metric) => (
                     <MetricPill key={metric.name} metric={metric} />
                   ))}
@@ -75,7 +76,7 @@ export function CaseStudyHighlights() {
         </div>
 
         <FadeIn delay={0.2}>
-          <p className="mt-8 text-center text-xs leading-relaxed text-ns-text-muted/80">
+          <p className="mt-8 text-center text-xs leading-relaxed text-ns-text-muted">
             {proofFootnote}
           </p>
         </FadeIn>

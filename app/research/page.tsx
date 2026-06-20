@@ -39,9 +39,9 @@ export default function ResearchPage() {
           </p>
           <div className="grid gap-6 md:grid-cols-3">
             {trials.map((trial, i) => (
-              <FadeIn key={trial.slug} delay={i * 0.1}>
+              <FadeIn key={trial.slug} className="h-full" delay={i * 0.1}>
                 <Card className="flex h-full flex-col">
-                  <span className="text-xs font-medium uppercase tracking-[0.15em] text-ns-accent">
+                  <span className="text-xs font-medium uppercase tracking-[0.2em] text-ns-accent">
                     {trial.status}
                   </span>
                   <h2 className="mt-3 font-display text-xl text-ns-text">
@@ -65,7 +65,7 @@ export default function ResearchPage() {
                       <dd className="inline">{trial.method}</dd>
                     </div>
                   </dl>
-                  <p className="mt-6 text-lg font-medium text-ns-accent">
+                  <p className="mt-auto pt-6 text-lg font-medium text-ns-accent">
                     {trial.headlineResult}
                   </p>
                 </Card>

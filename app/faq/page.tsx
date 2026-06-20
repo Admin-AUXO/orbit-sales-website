@@ -1,9 +1,12 @@
 import { PageShell } from "@/components/layout/PageShell";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Accordion } from "@/components/ui/Accordion";
+import { Section } from "@/components/ui/Section";
+import { Eyebrow } from "@/components/ui/SectionTypography";
 import { CTABand } from "@/components/sections/CTABand";
+import { faqCta } from "@/lib/cta-content";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { getFaq } from "@/lib/content";
+import { getFaq, type FaqItem } from "@/lib/content";
 import { breadcrumbJsonLd, faqJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata(
@@ -14,6 +17,17 @@ export const metadata = pageMetadata(
 
 export default function FaqPage() {
   const faq = getFaq();
+
+  const categories: string[] = [];
+  const grouped = new Map<string, FaqItem[]>();
+  for (const item of faq) {
+    const category = item.category ?? "General";
+    if (!grouped.has(category)) {
+      grouped.set(category, []);
+      categories.push(category);
+    }
+    grouped.get(category)!.push(item);
+  }
 
   return (
     <PageShell>
@@ -29,15 +43,27 @@ export default function FaqPage() {
       <PageHeader
         eyebrow="Questions"
         title="Frequently asked questions"
-        description="Everything you need to know about Neurostellar Orbit before you buy."
+        description="Everything you need to know about Neurostellar Orbit before you get started."
       />
 
-      <section className="py-16 md:py-24">
-        <div className="mx-auto max-w-3xl px-6 lg:px-8">
-          <Accordion items={faq.map((item) => ({ question: item.question, answer: item.answer }))} />
+      <Section innerClassName="max-w-3xl">
+        <div className="space-y-12">
+          {categories.map((category) => (
+            <div key={category}>
+              <Eyebrow className="mb-5">{category}</Eyebrow>
+              <Accordion
+                defaultOpen={null}
+                trackAs="faq"
+                items={(grouped.get(category) ?? []).map((item) => ({
+                  question: item.question,
+                  answer: item.answer,
+                }))}
+              />
+            </div>
+          ))}
         </div>
-      </section>
-      <CTABand />
+      </Section>
+      <CTABand {...faqCta} />
     </PageShell>
   );
 }

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { SessionReportVisual } from "@/components/report-tour/SessionReportVisual";
 import { FadeIn } from "@/components/ui/FadeIn";
 import {
   Eyebrow,
@@ -7,9 +7,6 @@ import {
   TextLink,
   sectionPadding,
 } from "@/components/ui/SectionTypography";
-import { brandAssets } from "@/lib/brand";
-
-const sessionReport = brandAssets.report.sessionReportPages[0];
 
 export function ProductDemo() {
   return (
@@ -27,7 +24,7 @@ export function ProductDemo() {
                 This is what 15 minutes of Orbit data looks like.
               </SectionTitle>
               <SectionDescription className="mt-4 max-w-xl">
-                Three scores. Twelve behavioural metrics. A clear read on where
+                Three scores. Twelve behavioral metrics. A clear read on where
                 your focus held and where it broke — after every session, compared
                 only to yourself.
               </SectionDescription>
@@ -38,17 +35,7 @@ export function ProductDemo() {
           </div>
 
           <FadeIn delay={0.1}>
-            <div className="overflow-hidden rounded-2xl border border-ns-border bg-ns-bg">
-              <Image
-                src={sessionReport.src}
-                alt={sessionReport.alt}
-                width={1200}
-                height={1600}
-                className="h-auto w-full"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                priority
-              />
-            </div>
+            <SessionReportVisual />
           </FadeIn>
         </div>
       </div>

@@ -9,7 +9,6 @@ interface TourChapterBlockProps {
   chapter: TourChapter;
   isActive: boolean;
   showScrollCue?: boolean;
-  setRef: (el: HTMLElement | null) => void;
   children: ReactNode;
 }
 
@@ -17,12 +16,10 @@ export function TourChapterBlock({
   chapter,
   isActive,
   showScrollCue,
-  setRef,
   children,
 }: TourChapterBlockProps) {
   return (
     <ReportChapter
-      ref={setRef}
       id={`chapter-${chapter.id}`}
       className="!min-h-0 py-12 md:py-20"
     >

@@ -8,7 +8,6 @@ export type ReportHotspot = {
 export type DayEvent = {
   activity: string;
   time: string;
-  /** Minutes from midnight for x-axis placement */
   timeMinutes: number;
   speed: number;
   agility: number;
@@ -19,7 +18,7 @@ export type BehavioralMetric = {
   label: string;
   value: string;
   description: string;
-  barColor: "#10b981" | "#f59e0b" | "#ef4444";
+  barColor: "#05c796" | "#0ea5e9" | "#6e7686";
   barFill: number;
 };
 
@@ -87,7 +86,7 @@ export const behavioralMetrics: BehavioralMetric[] = [
     label: "Avg Deep Work Duration",
     value: "28 s",
     description: "Average duration of deep work bouts (s).",
-    barColor: "#10b981",
+    barColor: "#05c796",
     barFill: 80,
   },
   {
@@ -95,7 +94,7 @@ export const behavioralMetrics: BehavioralMetric[] = [
     value: "40.9%",
     description:
       "Proportion of session time spent in deep work bouts.",
-    barColor: "#f59e0b",
+    barColor: "#0ea5e9",
     barFill: 40,
   },
   {
@@ -103,14 +102,14 @@ export const behavioralMetrics: BehavioralMetric[] = [
     value: "88 s",
     description:
       "Longest uninterrupted deep work bout (s).",
-    barColor: "#10b981",
+    barColor: "#05c796",
     barFill: 90,
   },
   {
     label: "Avg Recovery Duration",
     value: "12 s",
     description: "Average duration of recovery bouts (s).",
-    barColor: "#10b981",
+    barColor: "#05c796",
     barFill: 80,
   },
   {
@@ -118,7 +117,7 @@ export const behavioralMetrics: BehavioralMetric[] = [
     value: "12.0%",
     description:
       "Proportion of session time spent in recovery bouts.",
-    barColor: "#f59e0b",
+    barColor: "#0ea5e9",
     barFill: 40,
   },
   {
@@ -126,14 +125,14 @@ export const behavioralMetrics: BehavioralMetric[] = [
     value: "36 s",
     description:
       "Seconds to accumulate 10s of deep-work. Lower is better.",
-    barColor: "#f59e0b",
+    barColor: "#0ea5e9",
     barFill: 70,
   },
   {
     label: "Intensity Median",
     value: "34.9",
     description: "Median Intensity score.",
-    barColor: "#10b981",
+    barColor: "#05c796",
     barFill: 50,
   },
   {
@@ -141,7 +140,7 @@ export const behavioralMetrics: BehavioralMetric[] = [
     value: "22.6%",
     description:
       "Proportion of time with high intensity surges.",
-    barColor: "#10b981",
+    barColor: "#05c796",
     barFill: 80,
   },
   {
@@ -149,14 +148,14 @@ export const behavioralMetrics: BehavioralMetric[] = [
     value: "1.2 /min",
     description:
       "Rate of entries into Fragmented state per minute. Lower is better.",
-    barColor: "#f59e0b",
+    barColor: "#0ea5e9",
     barFill: 50,
   },
   {
     label: "Efficiency Median",
     value: "18.9",
     description: "Median Efficiency score.",
-    barColor: "#ef4444",
+    barColor: "#6e7686",
     barFill: 60,
   },
   {
@@ -164,7 +163,7 @@ export const behavioralMetrics: BehavioralMetric[] = [
     value: "10.2%",
     description:
       "Proportion of time with high efficiency surges.",
-    barColor: "#f59e0b",
+    barColor: "#0ea5e9",
     barFill: 40,
   },
   {
@@ -172,7 +171,7 @@ export const behavioralMetrics: BehavioralMetric[] = [
     value: "6.00 /min",
     description:
       "Cognitive-state switches per minute; higher means more dynamics.",
-    barColor: "#10b981",
+    barColor: "#05c796",
     barFill: 80,
   },
 ];
@@ -213,8 +212,8 @@ export const reportHotspots: Record<string, ReportHotspot> = {
   },
   metrics: {
     id: "metrics",
-    label: "Behavioural metrics",
-    tooltipTitle: "Twelve behavioural metrics",
+    label: "Behavioral metrics",
+    tooltipTitle: "Twelve behavioral metrics",
     tooltipBody:
       "Deep work duration, intrusion rate, recovery percentage, and nine more signals — each with your value, visual bar, and personal average range.",
   },
@@ -311,7 +310,7 @@ export const coachIntro = {
   points: [
     "You get a dedicated Neurostellar Performance Coach — not a chatbot, not a generic wellness app.",
     "They review your day-to-day activities, session history, and which protocols you've actually followed before suggesting anything new.",
-    "Recommendations are personalised to your schedule — meeting prep, deep work, recovery — not one-size-fits-all advice.",
+    "Recommendations are personalized to your schedule — meeting prep, deep work, recovery — not one-size-fits-all advice.",
   ],
 } as const;
 
@@ -348,12 +347,12 @@ export const tourChapters: TourChapter[] = [
     eyebrow: "Instant insight",
     title: "After each tracking session with Orbit you get an instant report",
     description:
-      "No waiting. No generic wellness summary. Your cognitive scores and behavioural metrics are ready before your next meeting.",
+      "No waiting. No generic wellness summary. Your cognitive scores and behavioral metrics are ready before your next meeting.",
   },
   {
     id: "session",
     eyebrow: "Session report",
-    title: "Three scores. Twelve behavioural metrics. Where your focus held and broke.",
+    title: "Three scores. Twelve behavioral metrics. Where your focus held and broke.",
     description:
       "This is the exact report you receive after every session — click each highlighted point to explore what it means.",
   },

@@ -4,9 +4,9 @@ import { useState } from "react";
 import type { WeeklyTrendPoint } from "@/lib/report-tour-data";
 
 const SERIES = [
-  { key: "speed" as const, label: "Speed", color: "rgba(0,190,225,0.9)" },
-  { key: "agility" as const, label: "Agility", color: "rgb(188,198,235)" },
-  { key: "endurance" as const, label: "Endurance", color: "rgba(200,180,255,0.9)" },
+  { key: "speed" as const, label: "Speed", color: "var(--ns-chart-1)" },
+  { key: "agility" as const, label: "Agility", color: "var(--ns-chart-2)" },
+  { key: "endurance" as const, label: "Endurance", color: "var(--ns-silver)" },
 ];
 
 interface WeeklyTrendChartProps {
@@ -45,10 +45,10 @@ export function WeeklyTrendChart({ data, className = "" }: WeeklyTrendChartProps
 
   return (
     <div
-      className={`rounded-xl border border-[#333333] bg-[#121212] p-4 sm:p-6 md:p-8 ${className}`}
+      className={`rounded-xl border border-ns-border bg-ns-bg-elevated p-4 sm:p-6 md:p-8 ${className}`}
     >
       <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-        <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#c9d1d9]">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-ns-text-muted">
           Weekly Trend
         </p>
         <div className="flex flex-wrap gap-4">
@@ -58,7 +58,7 @@ export function WeeklyTrendChart({ data, className = "" }: WeeklyTrendChartProps
                 className="h-0.5 w-4 rounded-full"
                 style={{ backgroundColor: s.color }}
               />
-              <span className="text-[10px] text-[#b0b3b8]">{s.label}</span>
+              <span className="text-[10px] text-ns-text-muted">{s.label}</span>
             </div>
           ))}
         </div>
@@ -77,14 +77,14 @@ export function WeeklyTrendChart({ data, className = "" }: WeeklyTrendChartProps
               y1={scaleY(v)}
               x2={padding.left + chartW}
               y2={scaleY(v)}
-              stroke="rgba(255,255,255,0.06)"
+              stroke="var(--ns-chart-grid)"
               strokeWidth="1"
             />
             <text
               x={padding.left - 6}
               y={scaleY(v) + 3}
               textAnchor="end"
-              className="fill-[#b0b3b8] text-[9px]"
+              className="fill-ns-text-muted text-[9px]"
             >
               {v}
             </text>
@@ -122,7 +122,7 @@ export function WeeklyTrendChart({ data, className = "" }: WeeklyTrendChartProps
               x={scaleX(i)}
               y={height - 10}
               textAnchor="middle"
-              className="fill-[#b0b3b8] text-[10px]"
+              className="fill-ns-text-muted text-[10px]"
             >
               {d.day}
             </text>
@@ -137,8 +137,8 @@ export function WeeklyTrendChart({ data, className = "" }: WeeklyTrendChartProps
               width={104}
               height={52}
               rx="6"
-              fill="#232323"
-              stroke="#333333"
+              fill="var(--ns-bg-card)"
+              stroke="var(--ns-border)"
             />
             <text
               x={scaleX(activeDay)}
@@ -154,7 +154,7 @@ export function WeeklyTrendChart({ data, className = "" }: WeeklyTrendChartProps
                 x={scaleX(activeDay)}
                 y={padding.top + 30 + si * 12}
                 textAnchor="middle"
-                className="fill-[#c9d1d9] text-[9px]"
+                className="fill-ns-text-muted text-[9px]"
               >
                 {s.label}: {data[activeDay][s.key].toFixed(1)}
               </text>

@@ -35,10 +35,10 @@ export default function CaseStudiesPage() {
         <div className="mx-auto max-w-[var(--ns-max-width)] px-6 lg:px-8">
           <div className="grid gap-6 md:grid-cols-2">
             {studies.map((study, i) => (
-              <FadeIn key={study.slug} delay={i * 0.05}>
-                <Link href={`/case-studies/${study.slug}`}>
+              <FadeIn key={study.slug} className="h-full" delay={i * 0.05}>
+                <Link href={`/case-studies/${study.slug}`} className="block h-full">
                   <Card className="h-full transition-colors hover:border-ns-accent/50">
-                    <span className="text-xs font-medium uppercase tracking-[0.15em] text-ns-accent">
+                    <span className="text-xs font-medium uppercase tracking-[0.2em] text-ns-accent">
                       {study.persona}
                     </span>
                     <h2 className="mt-3 font-display text-2xl text-ns-text">

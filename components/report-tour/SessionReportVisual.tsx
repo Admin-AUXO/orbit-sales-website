@@ -15,7 +15,7 @@ import {
 
 function ReportFooter({ page }: { page: number }) {
   return (
-    <div className="mt-8 flex items-center justify-between border-t border-[#333333]/60 pt-4 text-[9px] text-[#b0b3b8]">
+    <div className="mt-8 flex items-center justify-between border-t border-ns-border/60 pt-4 text-[9px] text-ns-text-muted">
       <span>{sessionMeta.generatedAt}</span>
       <span>{page}</span>
     </div>
@@ -30,15 +30,13 @@ export function SessionReportVisual() {
   }
 
   return (
-    <div className="overflow-hidden rounded-xl border border-[#333333] bg-[#121212] p-4 sm:p-5 md:p-7">
+    <div className="overflow-hidden rounded-xl border border-ns-border bg-ns-bg-elevated p-4 sm:p-5 md:p-7">
       <div className="mb-5 sm:mb-6">
         <Image
           src="/brand/logos/neurostellar-logo-horizontal-light.svg"
           alt="Neurostellar"
           width={140}
           height={28}
-          priority
-          loading="eager"
           className="h-5 w-auto opacity-90 sm:h-6"
         />
       </div>
@@ -46,7 +44,7 @@ export function SessionReportVisual() {
       <h2 className="text-2xl font-bold leading-tight text-white sm:text-[28px] md:text-[32px]">
         {sessionMeta.title}
       </h2>
-      <p className="mt-3 text-[12px] leading-relaxed text-[#c9d1d9] sm:text-[13px]">
+      <p className="mt-3 text-[12px] leading-relaxed text-ns-text-muted sm:text-[13px]">
         {sessionMeta.summary}
       </p>
 
@@ -79,7 +77,7 @@ export function SessionReportVisual() {
 
         <section>
           <SectionTitleWithInfo
-            title="Behavioural Metrics"
+            title="Behavioral Metrics"
             hotspot={reportHotspots.metrics}
             isActive={activeHotspot === "metrics"}
             onToggle={handleToggle}

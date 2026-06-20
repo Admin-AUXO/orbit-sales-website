@@ -1,11 +1,13 @@
 import Image from "next/image";
 import { PageShell } from "@/components/layout/PageShell";
 import { PageHeader } from "@/components/layout/PageHeader";
+import { GradientText } from "@/components/ui/GradientText";
 import { CTABand } from "@/components/sections/CTABand";
 import { Button } from "@/components/ui/Button";
+import { BookDemoButton } from "@/components/ui/BookDemoButton";
 import { FadeIn } from "@/components/ui/FadeIn";
 import {
-  primaryCtaHref,
+  orbitCta,
   primaryCtaLabel,
   secondaryCtaHref,
   secondaryCtaLabel,
@@ -39,7 +41,11 @@ export default function OrbitPage() {
       />
       <PageHeader
         eyebrow="The product"
-        title="Neurostellar Orbit™"
+        title={
+          <>
+            Neurostellar <GradientText>Orbit</GradientText>™
+          </>
+        }
         description="Premium smart headgear engineered for intentional mental fitness. Brain-grade sensing. Executive-grade design. Your edge, measured."
       />
 
@@ -63,11 +69,11 @@ export default function OrbitPage() {
               <p className="text-lg leading-relaxed text-ns-text-muted">
                 Orbit is a smart headband that turns 10–15 minute sessions into
                 instant cognitive reports — Speed, Agility, Endurance, and 12
-                behavioural metrics. Built for people who perform when the margin
+                behavioral metrics. Built for people who perform when the margin
                 is mental.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
-                <Button href={primaryCtaHref}>{primaryCtaLabel}</Button>
+                <BookDemoButton location="orbit_hero">{primaryCtaLabel}</BookDemoButton>
                 <Button href={secondaryCtaHref} variant="secondary">
                   {secondaryCtaLabel}
                 </Button>
@@ -82,7 +88,7 @@ export default function OrbitPage() {
       <OrbitDesignGallery />
       <OrbitTechSpecs />
       <OrbitUseCases />
-      <CTABand />
+      <CTABand {...orbitCta} />
     </PageShell>
   );
 }

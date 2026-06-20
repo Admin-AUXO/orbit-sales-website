@@ -54,3 +54,10 @@ docs/superpowers/specs/
 
 # Temporary files
 tmp/
+# Internal PDF build artifacts
+docs/**/pdfbuild/
+docs/.pdfbuild/
+.playwright-mcp/
+
+# Image/video optimize-script temp files
+public/brand/**/__opt_*

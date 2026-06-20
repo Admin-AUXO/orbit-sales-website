@@ -11,7 +11,6 @@ interface ReportGaugeDialProps {
   gauge: GaugeScore;
 }
 
-/** Snap trig output so SSR and client hydration stay in sync. */
 function svgNum(value: number) {
   return Number(value.toFixed(4));
 }
@@ -50,7 +49,7 @@ export function ReportGaugeDial({ gauge }: ReportGaugeDialProps) {
   const highLbl = labelAngle(88);
 
   return (
-    <div className="rounded-lg border border-[#333333] bg-[#232323] px-3 py-3 min-[500px]:px-3 min-[500px]:py-4">
+    <div className="rounded-lg border border-ns-border bg-ns-bg-card px-3 py-3 min-[500px]:px-3 min-[500px]:py-4">
       <div className="flex w-full flex-row items-center gap-2 min-[500px]:flex-col min-[500px]:items-center min-[500px]:gap-0">
         <svg
           viewBox="0 -10 200 116"
@@ -81,7 +80,7 @@ export function ReportGaugeDial({ gauge }: ReportGaugeDialProps) {
             cx={cx}
             cy={cy}
             r={5}
-            fill="#ffffff"
+            fill="var(--ns-text)"
             stroke={zoneColor(score)}
             strokeWidth={1.5}
           />
@@ -121,7 +120,7 @@ export function ReportGaugeDial({ gauge }: ReportGaugeDialProps) {
             x={cx}
             y={cy - 10}
             textAnchor="middle"
-            fill="#ffffff"
+            fill="var(--ns-text)"
             fontSize="22"
             fontWeight="700"
           >
@@ -133,7 +132,7 @@ export function ReportGaugeDial({ gauge }: ReportGaugeDialProps) {
           <p className="text-left text-xs font-medium text-white min-[500px]:text-center">
             {gauge.label}
           </p>
-          <p className="mt-1 text-left text-[10px] leading-snug text-[#c9d1d9] min-[500px]:text-center sm:text-[11px]">
+          <p className="mt-1 text-left text-[10px] leading-snug text-ns-text-muted min-[500px]:text-center sm:text-[11px]">
             {gauge.description}
           </p>
         </div>

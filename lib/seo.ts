@@ -26,6 +26,7 @@ export const defaultMetadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
+    url: SITE_URL,
     siteName: SITE_NAME,
     title: "Neurostellar Orbit™ | Mental Fitness for Peak Performance",
     description:
@@ -68,10 +69,20 @@ export function organizationJsonLd() {
     contactPoint: {
       "@type": "ContactPoint",
       email: "support@neuro-stellar.com",
-      telephone: "+91-78452-16763",
+      telephone: "+91 78452 16763",
       contactType: "customer support",
     },
     sameAs: [],
+  };
+}
+
+export function websiteJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: SITE_NAME,
+    url: SITE_URL,
+    publisher: { "@type": "Organization", name: SITE_NAME },
   };
 }
 
@@ -86,6 +97,8 @@ export function productJsonLd() {
     category: "Mental Fitness Wearable",
     offers: {
       "@type": "Offer",
+      price: "250",
+      priceCurrency: "USD",
       availability: "https://schema.org/PreOrder",
       url: `${SITE_URL}/demo`,
     },

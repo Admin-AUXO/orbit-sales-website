@@ -11,7 +11,7 @@ import {
 
 function ReportFooter({ page }: { page: number }) {
   return (
-    <div className="mt-8 flex items-center justify-between border-t border-[#333333]/60 pt-4 text-[9px] text-[#b0b3b8]">
+    <div className="mt-8 flex items-center justify-between border-t border-ns-border/60 pt-4 text-[9px] text-ns-text-muted">
       <span>{sessionMeta.generatedAt}</span>
       <span>{page}</span>
     </div>
@@ -26,7 +26,7 @@ export function SessionAnalysisVisual() {
   }
 
   return (
-    <div className="overflow-hidden rounded-xl border border-[#333333] bg-[#121212] p-4 sm:p-5 md:p-7">
+    <div className="overflow-hidden rounded-xl border border-ns-border bg-ns-bg-elevated p-4 sm:p-5 md:p-7">
       <div className="space-y-6 sm:space-y-8">
         <section>
           <SectionTitleWithInfo
@@ -36,8 +36,8 @@ export function SessionAnalysisVisual() {
             onToggle={handleToggle}
             tooltipPlacement="bottom"
           />
-          <div className="mt-3 rounded-lg border border-[#333333] bg-[#232323] px-4 py-4 sm:px-5 sm:py-5">
-            <p className="text-[12px] leading-relaxed text-[#c9d1d9] sm:text-[13px]">
+          <div className="mt-3 rounded-lg border border-ns-border bg-ns-bg-card px-4 py-4 sm:px-5 sm:py-5">
+            <p className="text-[12px] leading-relaxed text-ns-text-muted sm:text-[13px]">
               {sessionAnalysis.body}
             </p>
           </div>
@@ -51,13 +51,13 @@ export function SessionAnalysisVisual() {
             onToggle={handleToggle}
             tooltipPlacement="bottom"
           />
-          <div className="mt-3 space-y-4 rounded-lg border border-[#333333] bg-[#232323] px-4 py-4 sm:px-5 sm:py-5">
+          <div className="mt-3 space-y-4 rounded-lg border border-ns-border bg-ns-bg-card px-4 py-4 sm:px-5 sm:py-5">
             {sessionRecommendations.items.map((item) => (
               <p
                 key={item.label}
-                className="text-[12px] leading-relaxed text-[#c9d1d9] sm:text-[13px]"
+                className="text-[12px] leading-relaxed text-ns-text-muted sm:text-[13px]"
               >
-                <span className="font-semibold text-white underline decoration-[#c9d1d9]/40 underline-offset-2">
+                <span className="font-semibold text-ns-text underline decoration-ns-text-muted/40 underline-offset-2">
                   {item.label}
                 </span>{" "}
                 {item.body}

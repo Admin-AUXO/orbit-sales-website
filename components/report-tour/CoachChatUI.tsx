@@ -9,9 +9,9 @@ interface CoachChatUIProps {
 }
 
 const coachBubbleClass =
-  "rounded-[18px] rounded-bl-[4px] bg-[#333333] text-white";
+  "rounded-[18px] rounded-bl-[4px] bg-ns-border text-ns-text";
 const userBubbleClass =
-  "rounded-[18px] rounded-br-[4px] bg-[#0a84ff] text-white";
+  "rounded-[18px] rounded-br-[4px] bg-ns-sky text-ns-text";
 
 function MessageBubble({ msg }: { msg: CoachMessage }) {
   return (
@@ -32,12 +32,12 @@ function MessageBubble({ msg }: { msg: CoachMessage }) {
 
 function ChatShell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="mx-auto flex w-full max-w-md flex-col overflow-hidden rounded-xl border border-[#333333] bg-[#121212] shadow-xl">
-      <div className="border-b border-[#333333] bg-[#232323] px-4 py-3">
+    <div className="mx-auto flex w-full max-w-md flex-col overflow-hidden rounded-xl border border-ns-border bg-ns-bg-elevated shadow-xl">
+      <div className="border-b border-ns-border bg-ns-bg-card px-4 py-3">
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#333333]">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-ns-border">
             <svg
-              className="text-[#c9d1d9]"
+              className="text-ns-text-muted"
               width="20"
               height="20"
               viewBox="0 0 24 24"
@@ -55,8 +55,8 @@ function ChatShell({ children }: { children: React.ReactNode }) {
               Neurostellar Performance Coach
             </p>
             <div className="flex items-center gap-1.5">
-              <span className="h-2 w-2 rounded-full bg-[#34c759]" />
-              <span className="text-xs text-[#34c759]">Online</span>
+              <span className="h-2 w-2 rounded-full bg-ns-teal" />
+              <span className="text-xs text-ns-teal">Online</span>
             </div>
           </div>
         </div>
@@ -64,9 +64,9 @@ function ChatShell({ children }: { children: React.ReactNode }) {
 
       {children}
 
-      <div className="border-t border-[#333333] bg-[#232323] px-3 py-2.5">
-        <div className="flex items-center gap-2 rounded-full border border-[#333333] bg-[#121212] px-4 py-2">
-          <span className="text-sm text-[#b0b3b8]">Message</span>
+      <div className="border-t border-ns-border bg-ns-bg-card px-3 py-2.5">
+        <div className="flex items-center gap-2 rounded-full border border-ns-border bg-ns-bg-elevated px-4 py-2">
+          <span className="text-sm text-ns-text-muted">Message</span>
         </div>
       </div>
     </div>
@@ -81,7 +81,7 @@ export function CoachChatUI({ messages }: CoachChatUIProps) {
     return (
       <ChatShell>
         <ul
-          className="flex max-h-[420px] flex-col gap-2 overflow-y-auto bg-[#121212] px-3 py-4 sm:max-h-[480px] sm:px-4"
+          className="flex max-h-[420px] flex-col gap-2 overflow-y-auto bg-ns-bg-elevated px-3 py-4 sm:max-h-[480px] sm:px-4"
           aria-label="Chat with Neurostellar Performance Coach"
         >
           {messages.map((msg, i) => (
@@ -95,7 +95,7 @@ export function CoachChatUI({ messages }: CoachChatUIProps) {
   return (
     <ChatShell>
       <ul
-        className="flex max-h-[420px] flex-col gap-2 overflow-y-auto bg-[#121212] px-3 py-4 sm:max-h-[480px] sm:px-4"
+        className="flex max-h-[420px] flex-col gap-2 overflow-y-auto bg-ns-bg-elevated px-3 py-4 sm:max-h-[480px] sm:px-4"
         aria-label="Chat with Neurostellar Performance Coach"
       >
         {messages.map((msg, i) => (

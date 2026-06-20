@@ -1,6 +1,5 @@
 import { brandAssets } from "@/lib/brand";
 
-/** Portrait 4:5 — generate tiles at 1000×1250px (min 800×1000px) WebP or JPG */
 export const HERO_TILE_ASPECT = "4 / 5" as const;
 export const HERO_TILE_WIDTH = 1000;
 export const HERO_TILE_HEIGHT = 1250;
@@ -10,7 +9,6 @@ export type HeroTile = {
   alt: string;
 };
 
-/** Hero scroll tiles — assets in `public/brand/hero/` */
 export const heroTiles: HeroTile[] = [
   {
     src: brandAssets.hero.coder,

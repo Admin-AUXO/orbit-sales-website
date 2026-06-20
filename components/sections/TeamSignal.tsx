@@ -8,10 +8,10 @@ import {
 } from "@/components/ui/SectionTypography";
 
 const proofPoints = [
-  "EEG signal features correlated >0.5 with lab-standard equipment",
-  "Task classification: p < 0.001 across multiple cognitive conditions",
-  "Model robustness maintained within 8% under high-magnitude noise conditions",
-  "Individual baseline only — compared to you, not population averages",
+  "Signal features validated against lab-standard EEG equipment",
+  "Cognitive states distinguished reliably across multiple conditions in internal testing",
+  "Models built to stay robust under real-world movement and noise",
+  "Compared to your own baseline — not population averages",
   "In-house ethics committee with external neuroscience experts",
 ];
 
@@ -20,7 +20,7 @@ export function TeamSignal() {
     <section
       id="science-anchor"
       aria-labelledby="science-anchor-heading"
-      className={`border-y border-ns-border ${sectionPadding}`}
+      className={`edge-fade-y ${sectionPadding}`}
     >
       <div className="mx-auto max-w-[var(--ns-max-width)] px-6 lg:px-8">
         <FadeIn>
@@ -35,8 +35,9 @@ export function TeamSignal() {
                 and tested against laboratory-grade EEG equipment. Every score
                 is built to reflect your performance — not a population average.
               </SectionDescription>
-              <p className="mt-6">
+              <p className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
                 <TextLink href="/science">Explore the science →</TextLink>
+                <TextLink href="/about">Meet the team →</TextLink>
               </p>
             </div>
 

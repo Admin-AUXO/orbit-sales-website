@@ -41,4 +41,4 @@ export const cohortProofs: CohortProof[] = [
 ];
 
 export const proofFootnote =
-  "Directional pre/post trends from active users in live programmes · early cohorts with promising signals · scaling enrolment to validate at statistical significance.";
+  "Directional pre/post trends from active users in live programs · early cohorts with promising signals · scaling enrolment to validate at statistical significance.";

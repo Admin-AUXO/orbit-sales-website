@@ -6,7 +6,7 @@ interface ReportMetricCardProps {
 
 export function ReportMetricCard({ metric }: ReportMetricCardProps) {
   return (
-    <div className="rounded-lg border border-[#333333] bg-[#232323] px-3 py-3">
+    <div className="rounded-lg border border-ns-border bg-ns-bg-card px-3 py-3">
       <div className="flex items-start justify-between gap-2">
         <p className="text-xs font-medium leading-tight text-white">
           {metric.label}
@@ -16,7 +16,7 @@ export function ReportMetricCard({ metric }: ReportMetricCardProps) {
         </p>
       </div>
 
-      <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-[#333333]">
+      <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-ns-border">
         <div
           className="h-full rounded-full transition-all duration-700"
           style={{
@@ -26,7 +26,7 @@ export function ReportMetricCard({ metric }: ReportMetricCardProps) {
         />
       </div>
 
-      <p className="mt-2 text-[9px] leading-snug text-[#c9d1d9]">
+      <p className="mt-2 text-[9px] leading-snug text-ns-text-muted">
         {metric.description}
       </p>
     </div>

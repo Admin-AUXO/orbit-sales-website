@@ -11,6 +11,7 @@ import { SessionReportVisual } from "@/components/report-tour/SessionReportVisua
 import { TourChapterBlock } from "@/components/report-tour/TourChapterBlock";
 import { WeeklyTrendChart } from "@/components/report-tour/WeeklyTrendChart";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { trackReportTourChapter } from "@/lib/analytics";
 import {
   coachScript,
   dailyEvents,
@@ -21,9 +22,15 @@ import {
 
 export function ExecutiveReportTour() {
   const [activeChapter, setActiveChapter] = useState(0);
-  const chapterRefs = useRef<(HTMLElement | null)[]>([]);
+  const rootRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+
+    const chapters = Array.from(
+      root.querySelectorAll<HTMLElement>("[data-chapter]"),
+    );
     const ratios = new Map<number, number>();
 
     const pickActiveChapter = () => {
@@ -42,11 +49,7 @@ export function ExecutiveReportTour() {
       }
     };
 
-    const observers: IntersectionObserver[] = [];
-
-    chapterRefs.current.forEach((el, index) => {
-      if (!el) return;
-
+    const observers = chapters.map((el, index) => {
       const observer = new IntersectionObserver(
         ([entry]) => {
           ratios.set(index, entry.intersectionRatio);
@@ -57,26 +60,26 @@ export function ExecutiveReportTour() {
           rootMargin: "-12% 0px -38% 0px",
         },
       );
-
       observer.observe(el);
-      observers.push(observer);
+      return observer;
     });
 
     return () => observers.forEach((o) => o.disconnect());
   }, []);
 
-  function scrollToChapter(index: number) {
-    chapterRefs.current[index]?.scrollIntoView({ behavior: "smooth" });
-  }
+  useEffect(() => {
+    const chapter = tourChapters[activeChapter];
+    if (chapter) trackReportTourChapter(chapter.id, activeChapter);
+  }, [activeChapter]);
 
-  function setChapterRef(index: number) {
-    return (el: HTMLElement | null) => {
-      chapterRefs.current[index] = el;
-    };
+  function scrollToChapter(index: number) {
+    const chapters =
+      rootRef.current?.querySelectorAll<HTMLElement>("[data-chapter]");
+    chapters?.[index]?.scrollIntoView({ behavior: "smooth" });
   }
 
   return (
-    <div className="relative pb-16">
+    <div ref={rootRef} className="relative pb-16">
       <nav
         aria-label="Report tour chapters"
         className="fixed right-3 top-1/2 z-20 hidden -translate-y-1/2 flex-col gap-2.5 sm:flex md:right-6 lg:right-8"
@@ -102,7 +105,6 @@ export function ExecutiveReportTour() {
           chapter={tourChapters[0]}
           isActive={activeChapter === 0}
           showScrollCue
-          setRef={setChapterRef(0)}
         >
           <FadeIn>
             <ReportReadyVisual />
@@ -112,7 +114,6 @@ export function ExecutiveReportTour() {
         <TourChapterBlock
           chapter={tourChapters[1]}
           isActive={activeChapter === 1}
-          setRef={setChapterRef(1)}
         >
           <SessionReportVisual />
         </TourChapterBlock>
@@ -120,7 +121,6 @@ export function ExecutiveReportTour() {
         <TourChapterBlock
           chapter={tourChapters[2]}
           isActive={activeChapter === 2}
-          setRef={setChapterRef(2)}
         >
           <SessionAnalysisVisual />
         </TourChapterBlock>
@@ -128,7 +128,6 @@ export function ExecutiveReportTour() {
         <TourChapterBlock
           chapter={tourChapters[3]}
           isActive={activeChapter === 3}
-          setRef={setChapterRef(3)}
         >
           <ActivityHistoryChart events={dailyEvents} />
         </TourChapterBlock>
@@ -136,7 +135,6 @@ export function ExecutiveReportTour() {
         <TourChapterBlock
           chapter={tourChapters[4]}
           isActive={activeChapter === 4}
-          setRef={setChapterRef(4)}
         >
           <WeeklyTrendChart data={weeklyTrend} />
         </TourChapterBlock>
@@ -144,7 +142,6 @@ export function ExecutiveReportTour() {
         <TourChapterBlock
           chapter={tourChapters[5]}
           isActive={activeChapter === 5}
-          setRef={setChapterRef(5)}
         >
           <RecommendationCards items={recommendations} />
         </TourChapterBlock>
@@ -152,7 +149,6 @@ export function ExecutiveReportTour() {
         <TourChapterBlock
           chapter={tourChapters[6]}
           isActive={activeChapter === 6}
-          setRef={setChapterRef(6)}
         >
           <CoachIntroSection />
         </TourChapterBlock>
@@ -160,7 +156,6 @@ export function ExecutiveReportTour() {
         <TourChapterBlock
           chapter={tourChapters[7]}
           isActive={activeChapter === 7}
-          setRef={setChapterRef(7)}
         >
           <CoachChatUI messages={coachScript} />
         </TourChapterBlock>

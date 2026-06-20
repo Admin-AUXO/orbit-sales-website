@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { Container, Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { brandAssets } from "@/lib/brand";
 
@@ -35,7 +36,7 @@ const useCases = [
     label: "Wellness & recovery",
     title: "Recovery with intention",
     description:
-      "Guided breathwork, meditation, and journaling sessions — tracked with the same rigour as deep work. See how Speed, Agility, and Endurance shift across your day.",
+      "Guided breathwork, meditation, and journaling sessions — tracked with the same rigor as deep work. See how Speed, Agility, and Endurance shift across your day.",
     image: brandAssets.device.zen,
     imageAlt: "Neurostellar Orbit in a calm wellness and recovery setting",
     width: 1920,
@@ -50,13 +51,14 @@ export function OrbitUseCases() {
   const current = useCases.find((item) => item.id === active) ?? useCases[0];
 
   return (
-    <section
+    <Section
       id="use-cases"
-      aria-labelledby="use-cases-heading"
-      className="relative overflow-hidden bg-ns-bg-elevated py-16 md:py-24"
+      ariaLabelledby="use-cases-heading"
+      className="relative overflow-hidden bg-ns-bg-elevated"
+      contained={false}
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_70%_20%,var(--ns-aurora-2),transparent_55%)]" />
-      <div className="relative mx-auto max-w-[var(--ns-max-width)] px-6 lg:px-8">
+      <Container className="relative">
         <SectionHeading
           id="use-cases-heading"
           eyebrow="One device. Three ways to perform."
@@ -138,7 +140,7 @@ export function OrbitUseCases() {
             </div>
           </div>
         </FadeIn>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }

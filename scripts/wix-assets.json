@@ -1,0 +1,14 @@
+[
+  { "id": "42181a_ef88619f0d9446a2bfd4f331503c19d3~mv2.png", "out": "metrics/focus-ready.png" },
+  { "id": "42181a_dd3c6e4be5784b76a79296db61e5977e~mv2.png", "out": "metrics/cognitive-load.png" },
+  { "id": "42181a_a53d77e3d6a74c6abc6e4daa46293e92~mv2.png", "out": "metrics/relaxation-recovery.png" },
+  { "id": "42181a_c11d8c6c71394deba449c803728f5b4b~mv2.png", "out": "metrics/metrics-history.png" },
+  { "id": "42181a_2d48ee63416046c3b4a8ac52159ce44a~mv2.png", "out": "metrics/biofeedback-training.png" },
+  { "id": "42181a_db05eccf42754ac8826bee007f45c9ac~mv2.png", "out": "metrics/activity-types.png" },
+  { "id": "2e305c_822a84d5a67f4bee8d621683405510e1~mv2.png", "out": "partners/nit-rourkela.png" },
+  { "id": "2e305c_29c7da1af50542d6be0aca01cbad9eb5~mv2.png", "out": "partners/iaf.png" },
+  { "id": "2e305c_c01d83ff4b0344cdb1f7525a288d4722~mv2.png", "out": "partners/birac.png" },
+  { "id": "2e305c_289c1a686355428bb5986b5aa67b8031~mv2.png", "out": "partners/meity.png" },
+  { "id": "2e305c_4ccc4b121d6a4cd3ab6392f4b3f200ae~mv2.png", "out": "partners/iit-madras.png" },
+  { "id": "42181a_afd555269c1241dbb8703be66071f19d3~mv2.png", "out": "press/ces-2025.png" }
+]

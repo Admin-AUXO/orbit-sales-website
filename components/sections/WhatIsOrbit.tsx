@@ -4,6 +4,7 @@ import {
   Eyebrow,
   SectionDescription,
   SectionTitle,
+  TextLink,
   sectionPadding,
 } from "@/components/ui/SectionTypography";
 import { brandAssets } from "@/lib/brand";
@@ -37,9 +38,9 @@ export function WhatIsOrbit() {
               <div className="absolute inset-0 aurora-bg opacity-60" />
               <Image
                 src={brandAssets.device.front}
-                alt="Neurostellar Orbit — front view"
+                alt="Neurostellar Orbit front view with the status light illuminated"
                 fill
-                className="object-contain p-8"
+                className="object-contain p-6"
                 sizes="(max-width: 1024px) 80vw, 40vw"
               />
             </div>
@@ -52,7 +53,7 @@ export function WhatIsOrbit() {
             </SectionTitle>
             <SectionDescription className="mt-4">
               Orbit is a cognitive performance system that combines real-time
-              brain sensing with personalised coaching — so you can measure,
+              brain sensing with personalized coaching — so you can measure,
               understand, and improve how your mind performs.
             </SectionDescription>
 
@@ -80,6 +81,10 @@ export function WhatIsOrbit() {
                 </li>
               ))}
             </ol>
+
+            <p className="mt-8">
+              <TextLink href="/orbit">See the full product →</TextLink>
+            </p>
           </FadeIn>
         </div>
       </div>

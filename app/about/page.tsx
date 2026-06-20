@@ -1,8 +1,16 @@
 import { PageShell } from "@/components/layout/PageShell";
 import { PageHeader } from "@/components/layout/PageHeader";
+import { CredibilityWall } from "@/components/sections/CredibilityWall";
 import { CTABand } from "@/components/sections/CTABand";
+import { aboutCta } from "@/lib/cta-content";
+import { MissionSection } from "@/components/sections/MissionSection";
+import { TeamGrid } from "@/components/sections/TeamGrid";
+import { NewsStrip } from "@/components/sections/NewsStrip";
 import { Card } from "@/components/ui/Card";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { GradientText } from "@/components/ui/GradientText";
+import { Section } from "@/components/ui/Section";
+import { SectionTitle } from "@/components/ui/SectionTypography";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
@@ -41,14 +49,18 @@ export default function AboutPage() {
 
       <PageHeader
         eyebrow="Our story"
-        title="Built by people who understand peak performance"
-        description="Neurostellar was founded on a simple conviction: elite performance is as much a cognitive challenge as a physical one. We built Orbit to bring the same rigour athletes and executives apply to physical training directly to the mind."
+        title={
+          <>
+            Built by people who understand{" "}
+            <GradientText>peak performance</GradientText>
+          </>
+        }
+        description="Neurostellar was founded on a simple conviction: elite performance is as much a cognitive challenge as a physical one. We built Orbit to bring the same rigor athletes and executives apply to physical training directly to the mind."
       />
 
-      <section className="py-16 md:py-24">
-        <div className="mx-auto max-w-[var(--ns-max-width)] px-6 lg:px-8">
+      <Section>
           <div className="mx-auto max-w-2xl">
-            <h2 className="mb-6 font-display text-2xl text-ns-text">Why we started</h2>
+            <SectionTitle className="mb-6">Why we started</SectionTitle>
             <div className="space-y-5 leading-relaxed text-ns-text-muted">
               <p>
                 The highest performers in sport and business already invest heavily in physical
@@ -59,7 +71,7 @@ export default function AboutPage() {
               <p>
                 We set out to change that. Orbit is a wearable that measures brain and body signals
                 during intentional sessions, delivering instant cognitive reports and long-term trend
-                data that a dedicated performance coach can actually use to build a personalised
+                data that a dedicated performance coach can actually use to build a personalized
                 improvement plan.
               </p>
               <p>
@@ -69,15 +81,15 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
-        </div>
-      </section>
+      </Section>
 
-      <section className="bg-ns-bg-elevated py-16 md:py-24">
-        <div className="mx-auto max-w-[var(--ns-max-width)] px-6 lg:px-8">
-          <h2 className="mb-10 font-display text-2xl text-ns-text">What we stand for</h2>
+      <MissionSection />
+
+      <Section className="bg-ns-bg-elevated">
+          <SectionTitle className="mb-10">What we stand for</SectionTitle>
           <div className="grid gap-6 md:grid-cols-3">
             {values.map((v, i) => (
-              <FadeIn key={v.title} delay={i * 0.1}>
+              <FadeIn key={v.title} className="h-full" delay={i * 0.1}>
                 <Card className="h-full">
                   <h3 className="font-display text-lg text-ns-accent">{v.title}</h3>
                   <p className="mt-3 leading-relaxed text-ns-text-muted">{v.body}</p>
@@ -85,10 +97,15 @@ export default function AboutPage() {
               </FadeIn>
             ))}
           </div>
-        </div>
-      </section>
+      </Section>
 
-      <CTABand />
+      <CredibilityWall />
+
+      <TeamGrid />
+
+      <NewsStrip />
+
+      <CTABand {...aboutCta} />
     </PageShell>
   );
 }

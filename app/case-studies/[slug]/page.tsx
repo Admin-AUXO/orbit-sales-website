@@ -3,7 +3,6 @@ import Link from "next/link";
 import { PageShell } from "@/components/layout/PageShell";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Card } from "@/components/ui/Card";
-import { FadeIn } from "@/components/ui/FadeIn";
 import { CTABand } from "@/components/sections/CTABand";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getCaseStudies, getCaseStudy } from "@/lib/content";
@@ -84,8 +83,8 @@ export default async function CaseStudyPage({ params }: Props) {
           {study.trialRef && (
             <p className="mt-8 text-sm text-ns-text-muted">
               Related trial:{" "}
-              <Link href="/research" className="text-ns-accent hover:underline">
-                View research
+              <Link href="/science" className="text-ns-accent hover:underline">
+                Explore the science
               </Link>
             </p>
           )}

@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { type ReactNode } from "react";
 
-/** Standard vertical rhythm for homepage sections */
-export const sectionPadding = "py-20 lg:py-24";
+export const sectionPadding = "py-16 sm:py-20 lg:py-24";
 
 export function Eyebrow({
   children,
@@ -32,7 +31,7 @@ export function SectionTitle({
   return (
     <h2
       id={id}
-      className={`text-3xl font-bold tracking-tight text-ns-text md:text-4xl ${className}`}
+      className={`text-balance text-3xl font-bold tracking-tight text-ns-text md:text-4xl ${className}`}
     >
       {children}
     </h2>
@@ -48,7 +47,7 @@ export function SectionDescription({
 }) {
   return (
     <p
-      className={`text-base leading-relaxed text-ns-text-muted md:text-lg ${className}`}
+      className={`text-pretty text-base leading-relaxed text-ns-text-muted md:text-lg ${className}`}
     >
       {children}
     </p>

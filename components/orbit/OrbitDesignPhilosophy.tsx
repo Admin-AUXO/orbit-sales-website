@@ -1,5 +1,7 @@
 import { Card } from "@/components/ui/Card";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { Section } from "@/components/ui/Section";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { OrbitExplodeVideo } from "@/components/orbit/OrbitExplodeVideo";
 
 const principles = [
@@ -23,33 +25,18 @@ const principles = [
 
 export function OrbitDesignPhilosophy() {
   return (
-    <section
-      id="why-orbit"
-      aria-labelledby="why-orbit-heading"
-      className="py-16 md:py-24"
-    >
-      <div className="mx-auto max-w-[var(--ns-max-width)] px-6 lg:px-8">
-        <FadeIn>
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-ns-accent">
-              Engineering intent
-            </p>
-            <h2
-              id="why-orbit-heading"
-              className="text-3xl font-bold tracking-tight text-ns-text md:text-4xl"
-            >
-              Why Orbit is built the way it is
-            </h2>
-            <p className="mt-5 text-lg leading-relaxed text-ns-text-muted">
-              Most wearables measure your body in the background. Orbit measures
-              your mind when you decide it matters — then turns that into
-              actionable scores in minutes, not days.
-            </p>
-          </div>
-        </FadeIn>
+    <Section id="why-orbit" ariaLabelledby="why-orbit-heading">
+      <FadeIn>
+        <SectionHeading
+          id="why-orbit-heading"
+          eyebrow="Engineering intent"
+          title="Why Orbit is built the way it is"
+          description="Most wearables measure your body in the background. Orbit measures your mind when you decide it matters — then turns that into actionable scores in minutes, not days."
+        />
+      </FadeIn>
 
         <FadeIn delay={0.08}>
-          <div className="mx-auto mt-10 w-full max-w-3xl overflow-hidden rounded-2xl border border-ns-border md:mt-12">
+          <div className="mx-auto w-full max-w-3xl overflow-hidden rounded-2xl border border-ns-border">
             <OrbitExplodeVideo />
           </div>
         </FadeIn>
@@ -60,8 +47,8 @@ export function OrbitDesignPhilosophy() {
           </p>
           <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4 lg:gap-6">
             {principles.map((item, i) => (
-              <FadeIn key={item.title} delay={0.05 + i * 0.08}>
-                <Card className="h-full" premium>
+              <FadeIn key={item.title} className="h-full" delay={0.05 + i * 0.08}>
+                <Card className="flex h-full flex-col" premium>
                   <h3 className="text-base font-semibold text-ns-text md:text-lg">
                     {item.title}
                   </h3>
@@ -73,7 +60,6 @@ export function OrbitDesignPhilosophy() {
             ))}
           </div>
         </div>
-      </div>
-    </section>
+    </Section>
   );
 }

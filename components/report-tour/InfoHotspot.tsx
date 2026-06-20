@@ -9,7 +9,6 @@ interface InfoHotspotProps {
   tooltipBody: string;
   isActive: boolean;
   onToggle: (id: string) => void;
-  /** Inline mode: sits next to section titles. Default absolute overlay is deprecated. */
   inline?: boolean;
   tooltipPlacement?: "top" | "bottom";
 }
@@ -63,7 +62,7 @@ export function InfoHotspot({
         className="group relative flex h-8 w-8 items-center justify-center rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-ns-accent"
       >
         <span className="absolute inset-0 animate-ping rounded-full bg-white/15 opacity-60" />
-        <span className="relative flex h-[18px] w-[18px] items-center justify-center rounded-full border border-white/50 bg-white/90 text-[9px] font-bold text-[#121212] shadow-sm transition-transform group-hover:scale-110">
+        <span className="relative flex h-[18px] w-[18px] items-center justify-center rounded-full border border-white/50 bg-white/90 text-[9px] font-bold text-ns-bg-elevated shadow-sm transition-transform group-hover:scale-110">
           i
         </span>
       </button>
@@ -72,18 +71,18 @@ export function InfoHotspot({
         <div
           ref={tooltipRef}
           role="tooltip"
-          className={`absolute left-1/2 z-30 w-[min(280px,calc(100vw-3rem))] -translate-x-1/2 rounded-xl border border-[#333333] bg-[#232323] p-4 shadow-xl ${
+          className={`absolute left-1/2 z-30 w-[min(280px,calc(100vw-3rem))] -translate-x-1/2 rounded-xl border border-ns-border bg-ns-bg-card p-4 shadow-xl ${
             tooltipPlacement === "bottom"
               ? "top-full mt-2"
               : "bottom-full mb-2"
           }`}
         >
           <p className="text-sm font-semibold text-white">{tooltipTitle}</p>
-          <p className="mt-2 text-xs leading-relaxed text-[#c9d1d9]">
+          <p className="mt-2 text-xs leading-relaxed text-ns-text-muted">
             {tooltipBody}
           </p>
           <div
-            className={`absolute left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 border-[#333333] bg-[#232323] ${
+            className={`absolute left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 border-ns-border bg-ns-bg-card ${
               tooltipPlacement === "bottom"
                 ? "-top-1.5 border-l border-t"
                 : "-bottom-1.5 border-b border-r"

@@ -4,12 +4,12 @@ import { isRouteDisabled } from "@/lib/disabled-routes";
 
 export function middleware(request: NextRequest) {
   if (isRouteDisabled(request.nextUrl.pathname)) {
-    return new NextResponse(null, {
-      status: 404,
-      headers: {
-        "X-Robots-Tag": "noindex, nofollow",
-      },
-    });
+    const response = NextResponse.rewrite(
+      new URL("/_not-found", request.url),
+      { status: 404 },
+    );
+    response.headers.set("X-Robots-Tag", "noindex, nofollow");
+    return response;
   }
 }
 
@@ -21,6 +21,5 @@ export const config = {
     "/case-studies/:path*",
     "/research/:path*",
     "/team/:path*",
-    "/careers/:path*",
   ],
 };

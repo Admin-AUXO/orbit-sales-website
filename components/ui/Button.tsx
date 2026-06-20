@@ -1,15 +1,10 @@
 import Link from "next/link";
 import { type ReactNode } from "react";
-
-type ButtonVariant = "primary" | "secondary" | "ghost";
-
-const variants: Record<ButtonVariant, string> = {
-  primary:
-    "bg-ns-accent text-ns-on-accent hover:bg-ns-accent-hover border border-ns-accent",
-  secondary:
-    "bg-transparent text-ns-text border border-ns-border hover:border-ns-text hover:text-ns-text",
-  ghost: "bg-transparent text-ns-text-muted hover:text-ns-text border border-transparent",
-};
+import {
+  buttonBase,
+  buttonVariants,
+  type ButtonVariant,
+} from "@/lib/button-variants";
 
 type ButtonProps = {
   href: string;
@@ -33,7 +28,7 @@ export function Button({
       href={href}
       target={target}
       rel={rel}
-      className={`inline-flex cursor-pointer items-center justify-center rounded-full px-6 py-3 text-sm font-semibold tracking-wide transition-colors ${variants[variant]} ${className}`}
+      className={`${buttonBase} ${buttonVariants[variant]} ${className}`}
     >
       {children}
     </Link>

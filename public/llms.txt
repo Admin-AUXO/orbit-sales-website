@@ -1,24 +1,35 @@
 # Neurostellar
 
-> Premium mental fitness technology for athletes and executives.
+> Neurostellar Orbit is a premium mental-fitness wearable that measures cognitive performance for athletes and executives.
 
-Neurostellar builds Neurostellar Orbit — a smart headgear wearable that tracks focus, cognitive load, and recovery using EEG brain sensing and PPG body monitoring. The product is designed for intentional use during deep work, strategy, creation, and recovery sessions.
+Neurostellar Orbit is a smart headband that reads brain and body signals (EEG + PPG) during short, intentional 10–15 minute sessions. It turns each session into a cognitive report covering three scores — Cognitive Speed, Agility, and Endurance — plus behavioral metrics like deep-work duration and recovery. A dedicated performance coach, backed by an in-house neuroscience team, builds a plan from the data. It is passive (it only reads signals, never stimulates), non-invasive, and built for high performers who already track their physical training.
 
 ## Key pages
 
-- Home: /
-- Product: /orbit
-- For Athletes: /athletes
-- For Executives: /executives
-- Case Studies: /case-studies
-- Research & Trials: /research
-- The Science: /science
-- FAQ: /faq
-- Book a Demo: /demo
-- Report Tour: /report
+- Home: https://www.neuro-stellar.com/
+- Product (Orbit headgear, specs, use cases): https://www.neuro-stellar.com/orbit
+- The Science (EEG/PPG method, coaching): https://www.neuro-stellar.com/science
+- Sample Report Tour (interactive walkthrough): https://www.neuro-stellar.com/report
+- FAQ: https://www.neuro-stellar.com/faq
+- About: https://www.neuro-stellar.com/about
+- Careers: https://www.neuro-stellar.com/careers
+- Book a Demo: https://www.neuro-stellar.com/demo
+- Contact: https://www.neuro-stellar.com/contact
+- Privacy Policy: https://www.neuro-stellar.com/privacy-policy
+- Terms: https://www.neuro-stellar.com/terms
 
-## Contact
+## Common questions
 
+- What is it? A smart headband that measures cognitive performance during short sessions and turns it into coaching.
+- Who is it for? Competitive athletes, executives, and anyone who tracks physical performance and wants the same rigor for the mind.
+- How is it worn? In intentional 10–15 minute sessions during deep work, training, or recovery — not all day.
+- Is it safe? Yes. It is passive and non-invasive: it reads EEG and PPG signals and emits no stimulation. Data is encrypted and never sold.
+- What does it measure? Cognitive Speed, Agility, and Endurance, plus behavioral metrics, with trends over time.
+- How do I try it? Book a demo at https://www.neuro-stellar.com/demo.
+
+## Company
+
+- Incubated and backed by IIT Madras.
 - Email: support@neuro-stellar.com
 - Phone: +91 78452 16763
 - Website: https://www.neuro-stellar.com

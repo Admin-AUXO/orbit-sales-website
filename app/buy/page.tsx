@@ -17,7 +17,7 @@ export const metadata = pageMetadata(
 const features = [
   "Neurostellar Orbit headband — EEG + PPG sensors",
   "Cognitive Speed, Agility & Endurance scores after every session",
-  "12 behavioural metrics per session (deep work, recovery, intrusion rate, and more)",
+  "12 behavioral metrics per session (deep work, recovery, intrusion rate, and more)",
   "iOS & Android app with session history and trend reports",
   "Weekly review with a dedicated performance coach",
   "Neuroscience team-curated intervention protocols",

@@ -3,11 +3,6 @@ import localFont from "next/font/local";
 export const manrope = localFont({
   src: [
     {
-      path: "../public/brand/fonts/Manrope-ExtraLight.ttf",
-      weight: "200",
-      style: "normal",
-    },
-    {
       path: "../public/brand/fonts/Manrope-Light.ttf",
       weight: "300",
       style: "normal",

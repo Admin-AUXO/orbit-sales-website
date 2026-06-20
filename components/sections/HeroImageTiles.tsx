@@ -23,6 +23,7 @@ function HeroImageTile({
           alt={alt}
           fill
           priority={priority}
+          quality={65}
           className="object-cover"
           sizes="(max-width: 1280px) 40vw, 240px"
         />
@@ -66,7 +67,6 @@ export function HeroImageTiles() {
 
   return (
     <>
-      {/* Mobile & tablet — horizontal infinite scroll */}
       <div
         aria-hidden
         className="group/tiles hero-tiles-mask-x relative mt-10 overflow-hidden xl:hidden"
@@ -83,7 +83,6 @@ export function HeroImageTiles() {
         </div>
       </div>
 
-      {/* Desktop — staggered 2-column vertical infinite scroll */}
       <div
         aria-hidden
         className="group/tiles hero-tiles-mask-y relative mt-14 hidden h-[min(640px,75vh)] overflow-hidden xl:block xl:justify-self-end xl:-translate-x-8 2xl:-translate-x-14"

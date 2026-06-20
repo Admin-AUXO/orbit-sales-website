@@ -19,12 +19,81 @@ body {
   font-family: var(--font-manrope), system-ui, sans-serif;
 }
 
+.text-gradient-brand {
+  background: var(--ns-gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.hover-lift {
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+  will-change: transform;
+}
+.hover-lift:hover {
+  transform: translateY(-3px);
+}
+
+.sheen {
+  position: relative;
+  overflow: hidden;
+}
+.sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    var(--ns-accent-muted) 50%,
+    transparent 60%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+  pointer-events: none;
+}
+.sheen:hover::after {
+  transform: translateX(100%);
+}
+
 .scrollbar-none::-webkit-scrollbar {
   display: none;
 }
 .scrollbar-none {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+.edge-fade-y {
+  position: relative;
+}
+
+.edge-fade-y::before,
+.edge-fade-y::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--ns-border),
+    transparent
+  );
+}
+
+.edge-fade-y::before {
+  top: 0;
+}
+
+.edge-fade-y::after {
+  bottom: 0;
 }
 
 @keyframes marquee {
@@ -73,12 +142,29 @@ body {
   .animate-marquee,
   .animate-marquee-hero,
   .animate-marquee-vertical,
-  .animate-marquee-vertical-reverse {
-    animation: none;
+  .animate-marquee-vertical-reverse,
+  .animate-bounce,
+  .animate-ping,
+  .animate-pulse,
+  .animate-spin {
+    animation: none !important;
+  }
+
+  .hover-lift,
+  .sheen::after {
+    transition: none !important;
+  }
+  .hover-lift:hover {
+    transform: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
   }
 }
 
-/* Fade scroll edges into the hero background — no solid overlay bands */
 .hero-tiles-mask-y {
   -webkit-mask-image: linear-gradient(
     to bottom,

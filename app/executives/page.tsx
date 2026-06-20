@@ -58,7 +58,7 @@ export default function ExecutivesPage() {
         <div className="mx-auto max-w-[var(--ns-max-width)] px-6 lg:px-8">
           <div className="grid gap-6 md:grid-cols-3">
             {benefits.map((b, i) => (
-              <FadeIn key={b.title} delay={i * 0.1}>
+              <FadeIn key={b.title} className="h-full" delay={i * 0.1}>
                 <Card className="h-full">
                   <h2 className="font-display text-xl text-ns-accent">{b.title}</h2>
                   <p className="mt-3 leading-relaxed text-ns-text-muted">{b.body}</p>
@@ -77,12 +77,12 @@ export default function ExecutivesPage() {
             </h2>
             <div className="grid gap-6 md:grid-cols-2">
               {execStudies.map((study) => (
-                <Link key={study.slug} href={`/case-studies/${study.slug}`}>
-                  <Card className="h-full transition-colors hover:border-ns-accent/50">
+                <Link key={study.slug} href={`/case-studies/${study.slug}`} className="block h-full">
+                  <Card className="flex h-full flex-col transition-colors hover:border-ns-accent/50">
                     <h3 className="font-display text-xl text-ns-text">{study.headline}</h3>
                     <p className="mt-2 text-sm text-ns-text-muted">— {study.name}</p>
                     {study.results[0] && (
-                      <p className="mt-4 text-2xl text-ns-accent">{study.results[0].change}</p>
+                      <p className="mt-auto pt-4 text-2xl text-ns-accent">{study.results[0].change}</p>
                     )}
                   </Card>
                 </Link>

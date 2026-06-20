@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/Card";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const metrics = [
@@ -25,21 +26,20 @@ const metrics = [
 
 export function OrbitValueProps() {
   return (
-    <section
+    <Section
       id="what-orbit-delivers"
-      aria-labelledby="what-orbit-delivers-heading"
-      className="bg-ns-bg-elevated py-16 md:py-24"
+      ariaLabelledby="what-orbit-delivers-heading"
+      className="bg-ns-bg-elevated"
     >
-      <div className="mx-auto max-w-[var(--ns-max-width)] px-6 lg:px-8">
         <SectionHeading
           id="what-orbit-delivers-heading"
           eyebrow="What you get"
           title="Three scores. One clear picture of your edge."
-          description="After every 10–15 minute session, Orbit delivers Cognitive Speed, Agility, and Endurance — plus 12 behavioural metrics and trend reports over time. No jargon. Just what to do next."
+          description="After every 10–15 minute session, Orbit delivers Cognitive Speed, Agility, and Endurance — plus 12 behavioral metrics and trend reports over time. No jargon. Just what to do next."
         />
         <div className="grid gap-6 md:grid-cols-3">
           {metrics.map((metric, i) => (
-            <FadeIn key={metric.eyebrow} delay={i * 0.1}>
+            <FadeIn key={metric.eyebrow} className="h-full" delay={i * 0.1}>
               <Card className="flex h-full flex-col" premium>
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ns-accent">
                   {metric.eyebrow}
@@ -57,7 +57,6 @@ export function OrbitValueProps() {
             </FadeIn>
           ))}
         </div>
-      </div>
-    </section>
+    </Section>
   );
 }

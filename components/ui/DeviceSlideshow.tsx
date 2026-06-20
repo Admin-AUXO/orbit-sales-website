@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { deviceSlideshow } from "@/lib/brand";
 
 const SLIDE_DURATION_MS = 4500;
@@ -17,6 +17,7 @@ export function DeviceSlideshow({
   className = "",
 }: DeviceSlideshowProps) {
   const isHero = variant === "hero";
+  const prefersReducedMotion = useReducedMotion();
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(1);
 
@@ -34,9 +35,10 @@ export function DeviceSlideshow({
   }, [index, goTo]);
 
   useEffect(() => {
+    if (prefersReducedMotion) return;
     const timer = setInterval(next, SLIDE_DURATION_MS);
     return () => clearInterval(timer);
-  }, [next]);
+  }, [next, prefersReducedMotion]);
 
   const current = deviceSlideshow[index];
 
