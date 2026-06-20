@@ -1,4 +1,31 @@
-export const brandAssets = {
+// Assets live in /public but the site is served from a basePath subpath on
+// GitHub Pages. next/image does not prepend basePath when images are
+// unoptimized, so we prefix every public asset path here at the source.
+// Must match the default in next.config.ts so routing basePath and asset
+// prefixing always agree (override both via NEXT_PUBLIC_BASE_PATH).
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "/orbit-sales-website";
+
+function prefixAssets<T>(value: T): T {
+  if (typeof value === "string") {
+    return (value.startsWith("/") ? `${BASE_PATH}${value}` : value) as T;
+  }
+  if (Array.isArray(value)) {
+    return value.map((item) => prefixAssets(item)) as T;
+  }
+  if (value && typeof value === "object") {
+    return Object.fromEntries(
+      Object.entries(value).map(([key, val]) => [key, prefixAssets(val)]),
+    ) as T;
+  }
+  return value;
+}
+
+// Prefix a single public asset path (e.g. for inline string refs).
+export function asset(path: string): string {
+  return prefixAssets(path);
+}
+
+const rawBrandAssets = {
   logos: {
     horizontalLight: "/brand/logos/neurostellar-logo-horizontal-light.svg",
     horizontalDark: "/brand/logos/neurostellar-logo-horizontal-dark.svg",
@@ -52,7 +79,9 @@ export const brandAssets = {
   },
 } as const;
 
-export const partnerLogos = [
+export const brandAssets = prefixAssets(rawBrandAssets);
+
+export const partnerLogos = prefixAssets([
   { src: "/brand/partners/iit-madras.webp", name: "IIT Madras" },
   { src: "/brand/partners/nit-rourkela.webp", name: "NIT Rourkela" },
   { src: "/brand/partners/iaf.webp", name: "Indian Air Force" },
@@ -63,14 +92,14 @@ export const partnerLogos = [
   { src: "/brand/partners/tie-women.webp", name: "TiE Women" },
   { src: "/brand/partners/prayas.webp", name: "Prayas" },
   { src: "/brand/partners/t50.webp", name: "T50" },
-] as const;
+] as const);
 
-export const pressLogos = [
+export const pressLogos = prefixAssets([
   { src: "/brand/press/tedx.webp", name: "TEDx" },
   { src: "/brand/press/moneycontrol.webp", name: "Moneycontrol" },
   { src: "/brand/press/ilanjar-mani.webp", name: "Ilanjar Mani" },
   { src: "/brand/press/tamilpreneur.webp", name: "Tamilpreneur" },
-] as const;
+] as const);
 
 export const deviceSlideshow = [
   { src: brandAssets.device.front, label: "Front" },

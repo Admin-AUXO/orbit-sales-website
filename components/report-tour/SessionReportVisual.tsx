@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { brandAssets } from "@/lib/brand";
 import { ReportCognitiveTimeline } from "@/components/report-tour/ReportCognitiveTimeline";
 import { ReportGaugeDial } from "@/components/report-tour/ReportGaugeDial";
 import { ReportMetricCard } from "@/components/report-tour/ReportMetricCard";
@@ -33,7 +34,7 @@ export function SessionReportVisual() {
     <div className="overflow-hidden rounded-xl border border-ns-border bg-ns-bg-elevated p-4 sm:p-5 md:p-7">
       <div className="mb-5 sm:mb-6">
         <Image
-          src="/brand/logos/neurostellar-logo-horizontal-light.svg"
+          src={brandAssets.logos.horizontalLight}
           alt="Neurostellar"
           width={140}
           height={28}

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { asset } from "@/lib/brand";
 import { FadeIn } from "@/components/ui/FadeIn";
 import {
   Eyebrow,
@@ -79,7 +80,7 @@ export function NewsStrip() {
               >
                 <div className="relative aspect-[4/3]">
                   <Image
-                    src={item.image}
+                    src={asset(item.image)}
                     alt={item.caption}
                     fill
                     className="object-cover object-top"

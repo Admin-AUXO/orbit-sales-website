@@ -4,6 +4,7 @@ import { FadeIn } from "@/components/ui/FadeIn";
 import { GradientText } from "@/components/ui/GradientText";
 import { sectionPadding } from "@/components/ui/SectionTypography";
 import { team } from "@/lib/team";
+import { asset } from "@/lib/brand";
 
 export function TeamGrid() {
   return (
@@ -49,7 +50,7 @@ export function TeamGrid() {
               <div className="group">
                 <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-100 transition-transform duration-300 group-hover:-translate-y-1">
                   <Image
-                    src={member.photo}
+                    src={asset(member.photo)}
                     alt={member.name}
                     fill
                     className="object-cover grayscale transition duration-500 group-hover:grayscale-0"
